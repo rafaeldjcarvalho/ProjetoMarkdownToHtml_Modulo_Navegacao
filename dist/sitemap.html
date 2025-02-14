@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>"sitemap.md"</title>
+    <link rel="stylesheet" href="assets/meu-estilo.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- MENU será inserido aqui -->
+            <nav class='sidebar'><ul>
+<li><a href='index.html'>Index</a></li>
+<li><a href='parte-1.html'>Parte 1</a></li>
+<li><a href='parte-2.html'>Parte 2</a></li>
+<li><a href='parte-3.html'>Parte 3</a></li>
+<li><a href='sitemap.html'>Sitemap</a></li>
+</ul></nav>
+        </aside>
+
+        <main class="markdown-body">
+<nav aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Index</a></li>
+<li class="breadcrumb-item active" aria-current="page">Sitemap</li>
+</ol></nav>
+
+            <!-- Breadcrumbs e ToC serão inseridos automaticamente -->
+            <h4 id="o-que-é-um-sitemap">O que é um Sitemap?</h4>
+            <p>Um <strong>sitemap</strong> é um arquivo que descreve de
+            forma estruturada todas as páginas de um site, permitindo
+            que os mecanismos de busca compreendam melhor a estrutura e
+            navegação do seu site. Esse arquivo fornece informações
+            úteis sobre as páginas, vídeos e outros arquivos, indicando
+            a relação entre eles.</p>
+            <p>O sitemap atua como um mapa para os rastreadores,
+            guiando-os pelas páginas importantes que você deseja que
+            sejam indexadas e armazenadas nos servidores dos mecanismos
+            de pesquisa.</p>
+            <h4 id="vantagens-de-utilizar-um-sitemap">Vantagens de
+            Utilizar um Sitemap</h4>
+            <ul>
+            <li><strong>Melhor Indexação</strong>: Ao fornecer um
+            sitemap aos mecanismos de busca, você facilita a descoberta
+            de todas as páginas do seu site, incluindo aquelas que podem
+            não ser facilmente encontradas por meio da navegação
+            padrão.</li>
+            <li><strong>Atualizações Rápidas</strong>: Sitemaps informam
+            aos motores de busca sobre quaisquer atualizações ou
+            mudanças em seu site, garantindo que o conteúdo mais recente
+            seja indexado rapidamente.</li>
+            <li><strong>Prioridade de Páginas</strong>: Você pode
+            indicar quais páginas são mais importantes, ajudando os
+            rastreadores a entenderem onde focar sua atenção.</li>
+            </ul>
+            <h4 id="alternativas-ao-sitemap">Alternativas ao
+            Sitemap</h4>
+            <p>Embora o sitemap seja um recurso valioso, existem
+            alternativas e práticas complementares:</p>
+            <ul>
+            <li><strong>Arquitetura de Site Bem Planejada</strong>: Um
+            site com uma estrutura lógica e links internos claros pode
+            facilitar o trabalho dos rastreadores sem depender
+            exclusivamente de um sitemap.</li>
+            <li><strong>Arquivo Robots.txt</strong>: Enquanto o sitemap
+            indica quais páginas devem ser rastreadas, o arquivo
+            robots.txt informa aos mecanismos de busca quais páginas
+            <strong>não</strong> devem ser rastreadas.</li>
+            </ul>
+            <h4 id="exemplos-de-sitemaps">Exemplos de Sitemaps</h4>
+            <p>Um sitemap em XML típico pode se parecer com:</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode xml"><code class="sourceCode xml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">urlset</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">url</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">loc</span>&gt;https://www.exemplo.com/&lt;/<span class="kw">loc</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">lastmod</span>&gt;2023-11-30&lt;/<span class="kw">lastmod</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">changefreq</span>&gt;monthly&lt;/<span class="kw">changefreq</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">priority</span>&gt;1.0&lt;/<span class="kw">priority</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">url</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">loc</span>&gt;https://www.exemplo.com/sobre&lt;/<span class="kw">loc</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">lastmod</span>&gt;2023-11-25&lt;/<span class="kw">lastmod</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">changefreq</span>&gt;yearly&lt;/<span class="kw">changefreq</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>      &lt;<span class="kw">priority</span>&gt;0.8&lt;/<span class="kw">priority</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   &lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">urlset</span>&gt;</span></code></pre></div>
+            <h4
+            id="tutorial-como-criar-um-sitemap-para-seu-site-estático">Tutorial:
+            Como Criar um Sitemap para Seu Site Estático</h4>
+            <p>A seguir, um passo a passo detalhado para criar um
+            sitemap para o seu site estático.</p>
+            <h5 id="passo-1-liste-todas-as-páginas-do-seu-site">Passo 1:
+            Liste Todas as Páginas do Seu Site</h5>
+            <ul>
+            <li><strong>Faça um inventário</strong>: Liste todas as
+            páginas que compõem o seu site. Inclua páginas principais,
+            secundárias, posts de blog, páginas de contato, etc.</li>
+            </ul>
+            <h5 id="passo-2-crie-o-arquivo-sitemap.xml">Passo 2: Crie o
+            Arquivo sitemap.xml</h5>
+            <ul>
+            <li><strong>Use um editor de texto</strong>: Abra um editor
+            de texto simples, como o Notepad (Windows) ou TextEdit
+            (macOS).</li>
+            <li><strong>Inicie o arquivo</strong>: Salve o arquivo vazio
+            como <code>sitemap.xml</code>.</li>
+            </ul>
+            <h5
+            id="passo-3-adicione-a-declaração-xml-e-a-tag-principal">Passo
+            3: Adicione a Declaração XML e a Tag Principal</h5>
+            <ul>
+            <li><p><strong>Declaração XML</strong>:</p>
+            <div class="sourceCode" id="cb2"><pre
+            class="sourceCode xml"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span><span class="fu">?&gt;</span></span></code></pre></div></li>
+            <li><p><strong>Tag <code>&lt;urlset&gt;</code></strong>:</p>
+            <div class="sourceCode" id="cb3"><pre
+            class="sourceCode xml"><code class="sourceCode xml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">urlset</span><span class="ot"> xmlns=</span><span class="st">&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;</span>&gt;</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- As URLs serão inseridas aqui --&gt;</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">urlset</span>&gt;</span></code></pre></div></li>
+            </ul>
+            <h5 id="passo-4-insira-as-urls-do-seu-site">Passo 4: Insira
+            as URLs do Seu Site</h5>
+            <p>Para cada página listada no passo 1, adicione um bloco
+            <code>&lt;url&gt;</code> dentro da tag
+            <code>&lt;urlset&gt;</code>:</p>
+            <div class="sourceCode" id="cb4"><pre
+            class="sourceCode xml"><code class="sourceCode xml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">url</span>&gt;</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">loc</span>&gt;URL_da_Página&lt;/<span class="kw">loc</span>&gt;</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">lastmod</span>&gt;Data_da_Ultima_Modificação&lt;/<span class="kw">lastmod</span>&gt;</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">changefreq</span>&gt;Frequência_de_Atualização&lt;/<span class="kw">changefreq</span>&gt;</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">priority</span>&gt;Prioridade&lt;/<span class="kw">priority</span>&gt;</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">url</span>&gt;</span></code></pre></div>
+            <ul>
+            <li><p><strong>Exemplo</strong>:</p>
+            <div class="sourceCode" id="cb5"><pre
+            class="sourceCode xml"><code class="sourceCode xml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">url</span>&gt;</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">loc</span>&gt;https://www.seusite.com/&lt;/<span class="kw">loc</span>&gt;</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">lastmod</span>&gt;2023-11-30&lt;/<span class="kw">lastmod</span>&gt;</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">changefreq</span>&gt;monthly&lt;/<span class="kw">changefreq</span>&gt;</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>   &lt;<span class="kw">priority</span>&gt;1.0&lt;/<span class="kw">priority</span>&gt;</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">url</span>&gt;</span></code></pre></div></li>
+            </ul>
+            <h5 id="detalhes-dos-campos">Detalhes dos Campos:</h5>
+            <ul>
+            <li><strong><code>&lt;loc&gt;</code></strong>: A URL exata
+            da página.</li>
+            <li><strong><code>&lt;lastmod&gt;</code></strong>: Data da
+            última modificação no formato AAAA-MM-DD.</li>
+            <li><strong><code>&lt;changefreq&gt;</code></strong>:
+            Frequência estimada de alteração da página
+            (<code>always</code>, <code>hourly</code>,
+            <code>daily</code>, <code>weekly</code>,
+            <code>monthly</code>, <code>yearly</code>,
+            <code>never</code>).</li>
+            <li><strong><code>&lt;priority&gt;</code></strong>:
+            Importância da página em relação às outras, variando de
+            <code>0.0</code> a <code>1.0</code>.</li>
+            </ul>
+            <h5
+            id="passo-5-complete-o-arquivo-com-todas-as-páginas">Passo
+            5: Complete o Arquivo com Todas as Páginas</h5>
+            <ul>
+            <li><strong>Repita o bloco <code>&lt;url&gt;</code></strong>
+            para cada página.</li>
+            <li><strong>Verifique a sintaxe</strong>: Certifique-se de
+            que todas as tags estão corretamente fechadas e
+            aninhadas.</li>
+            </ul>
+            <h5 id="passo-6-salve-e-coloque-o-sitemap-no-seu-site">Passo
+            6: Salve e Coloque o Sitemap no Seu Site</h5>
+            <ul>
+            <li><strong>Salvar</strong>: Após inserir todas as URLs,
+            salve o arquivo.</li>
+            <li><strong>Fazer upload</strong>: Envie o
+            <code>sitemap.xml</code> para a raiz do seu site (exemplo:
+            <code>https://www.seusite.com/sitemap.xml</code>).</li>
+            </ul>
+            <h5 id="passo-7-notifique-os-mecanismos-de-busca">Passo 7:
+            Notifique os Mecanismos de Busca</h5>
+            <ul>
+            <li><p><strong>Google Search Console</strong>:</p>
+            <ul>
+            <li>Acesse sua conta no Google Search Console.</li>
+            <li>No menu, selecione “Sitemaps”.</li>
+            <li>Insira a URL completa do seu sitemap e clique em
+            “Enviar”.</li>
+            </ul></li>
+            <li><p><strong>Bing Webmaster Tools</strong>:</p>
+            <ul>
+            <li>Faça login na sua conta do Bing Webmaster Tools.</li>
+            <li>No painel, vá para “Sitemaps” e adicione a URL do seu
+            sitemap.</li>
+            </ul></li>
+            </ul>
+            <h5
+            id="passo-8-verifique-se-o-sitemap-foi-processado-corretamente">Passo
+            8: Verifique se o Sitemap Foi Processado Corretamente</h5>
+            <ul>
+            <li><strong>Monitorar status</strong>: Nos consoles dos
+            mecanismos de busca, verifique se há erros de leitura ou
+            processamento.</li>
+            <li><strong>Corrigir problemas</strong>: Se houver erros,
+            edite o <code>sitemap.xml</code> conforme necessário e
+            reenvie.</li>
+            </ul>
+            <h5 id="passo-9-atualize-o-sitemap-regularmente">Passo 9:
+            Atualize o Sitemap Regularmente</h5>
+            <ul>
+            <li><strong>Manutenção</strong>: Sempre que adicionar ou
+            remover páginas, atualize o sitemap.</li>
+            <li><strong>Resubmissão opcional</strong>: Embora os
+            mecanismos de busca recrawleiem periodicamente o sitemap,
+            você pode reenviá-lo para acelerar o processo.</li>
+            </ul>
+            <h4 id="conclusão">Conclusão</h4>
+            <p>Criar um sitemap para o seu site estático é uma prática
+            essencial para melhorar a visibilidade e a eficiência de
+            indexação nos mecanismos de busca. Além de facilitar o
+            trabalho dos rastreadores, um sitemap assegura que todas as
+            páginas importantes do seu site sejam descobertas e exibidas
+            nos resultados de pesquisa.</p>
+            <p>Seguindo este tutorial, você terá um sitemap funcional
+            que contribuirá para o SEO do seu site e proporcionará uma
+            melhor experiência aos usuários ao encontrarem seu conteúdo
+            online.</p>
+            <hr>
+            <h4 id="o-que-é-o-robots.txt">O que é o Robots.txt?</h4>
+            <p>O <strong>robots.txt</strong> é um arquivo de texto
+            simples que fica na raiz do seu site e serve para comunicar
+            aos <strong>mecanismos de busca</strong> (também chamados de
+            <strong>robôs</strong> ou <strong>bots</strong>) quais
+            páginas ou seções do seu site eles podem ou não rastrear e
+            indexar. Ele utiliza o protocolo <strong>Robots Exclusion
+            Standard</strong>, que é um acordo entre desenvolvedores de
+            sites e mecanismos de busca para respeitar as diretivas
+            fornecidas nesse arquivo.</p>
+            <h4 id="como-funciona">Como Funciona?</h4>
+            <p>Quando um robô de busca visita um site, ele primeiro
+            procura pelo arquivo <code>robots.txt</code> para saber
+            quais áreas do site ele pode rastrear. O arquivo contém
+            instruções (chamadas de <strong>diretivas</strong>) que
+            especificam quais agentes de usuário
+            (<strong>user-agents</strong>) (por exemplo, Googlebot,
+            Bingbot) têm permissão ou são proibidos de acessar
+            determinadas partes do site.</p>
+            <h4 id="vantagens-de-utilizar-o-robots.txt">Vantagens de
+            Utilizar o Robots.txt</h4>
+            <ul>
+            <li><strong>Controle de Rastreamento</strong>: Permite
+            controlar quais partes do seu site os mecanismos de busca
+            devem ou não rastrear, economizando sua largura de banda e
+            recursos do servidor.</li>
+            <li><strong>Privacidade e Segurança</strong>: Evita que
+            conteúdo sensível ou não relevante apareça nos resultados de
+            busca.</li>
+            <li><strong>Gerenciamento de Conteúdo Duplicado</strong>:
+            Impede que páginas duplicadas sejam indexadas, o que pode
+            prejudicar o SEO do seu site.</li>
+            <li><strong>Direcionamento de Rastreamento</strong>: Orienta
+            os bots a priorizarem conteúdo importante, melhorando a
+            eficiência de rastreamento.</li>
+            </ul>
+            <h4 id="limitações-do-robots.txt">Limitações do
+            Robots.txt</h4>
+            <ul>
+            <li><strong>Não é um Mecanismo de Segurança</strong>: O
+            <code>robots.txt</code> é uma convenção voluntária. Bots
+            maliciosos ou visitantes podem ignorar as diretivas e
+            acessar o conteúdo.</li>
+            <li><strong>Visibilidade do Arquivo</strong>: Qualquer
+            pessoa pode acessar seu <code>robots.txt</code> adicionando
+            <code>/robots.txt</code> ao seu domínio. Portanto, não
+            inclua informações sensíveis nele.</li>
+            </ul>
+            <h4 id="exemplos-de-robots.txt">Exemplos de Robots.txt</h4>
+            <ul>
+            <li><p><strong>Permitir o Acesso a Todos os
+            Bots</strong></p>
+            <pre><code>User-agent: *
+Disallow:</code></pre></li>
+            <li><p><strong>Bloquear Todo o Site para Todos os
+            Bots</strong></p>
+            <pre><code>User-agent: *
+Disallow: /</code></pre></li>
+            <li><p><strong>Bloquear um Diretório Específico</strong></p>
+            <pre><code>User-agent: *
+Disallow: /admin/</code></pre></li>
+            <li><p><strong>Bloquear um Arquivo Específico</strong></p>
+            <pre><code>User-agent: *
+Disallow: /privado.html</code></pre></li>
+            <li><p><strong>Permitir Acesso a um Arquivo em um Diretório
+            Bloqueado</strong></p>
+            <pre><code>User-agent: *
+Disallow: /arquivos/
+Allow: /arquivos/publico.html</code></pre></li>
+            <li><p><strong>Diretivas Específicas para Bots</strong></p>
+            <pre><code>User-agent: Googlebot
+Disallow: /no-google/
+
+User-agent: Bingbot
+Disallow: /no-bing/
+
+User-agent: *
+Disallow:</code></pre></li>
+            </ul>
+            <h4
+            id="tutorial-como-criar-um-robots.txt-para-seu-site-estático">Tutorial:
+            Como Criar um Robots.txt para Seu Site Estático</h4>
+            <p>A seguir, um passo a passo detalhado para criar e
+            implementar um arquivo <code>robots.txt</code> para o seu
+            site estático.</p>
+            <h5
+            id="passo-1-entenda-a-estrutura-básica-do-robots.txt">Passo
+            1: Entenda a Estrutura Básica do Robots.txt</h5>
+            <p>O arquivo <code>robots.txt</code> é composto por uma ou
+            mais seções, cada uma começando com a declaração do
+            <strong>User-agent</strong> e seguida por diretivas como
+            <strong>Disallow</strong> e <strong>Allow</strong>.</p>
+            <ul>
+            <li><strong>User-agent</strong>: Especifica o robô ao qual
+            as diretivas se aplicam.</li>
+            <li><strong>Disallow</strong>: Especifica o caminho que não
+            deve ser rastreado.</li>
+            <li><strong>Allow</strong>: Especifica o caminho que pode
+            ser rastreado (usado principalmente para permitir
+            subdiretórios ou páginas em um diretório bloqueado).</li>
+            <li><strong>Sitemap</strong> (opcional): Indica o local do
+            seu sitemap.</li>
+            </ul>
+            <h5 id="passo-2-liste-as-seções-do-seu-site">Passo 2: Liste
+            as Seções do Seu Site</h5>
+            <ul>
+            <li><strong>Identifique</strong> quais partes do seu site
+            você deseja que sejam rastreadas e indexadas.</li>
+            <li><strong>Determine</strong> quais áreas você deseja
+            bloquear (por exemplo, páginas de administração, páginas de
+            teste, conteúdo duplicado).</li>
+            </ul>
+            <h5 id="passo-3-crie-o-arquivo-robots.txt">Passo 3: Crie o
+            Arquivo robots.txt</h5>
+            <ul>
+            <li><strong>Use um editor de texto simples</strong>: Como o
+            Notepad (Windows), TextEdit (macOS) ou qualquer editor de
+            código.</li>
+            <li><strong>Salve o arquivo</strong> como
+            <code>robots.txt</code> (nome em letras minúsculas).</li>
+            </ul>
+            <h5 id="passo-4-escreva-as-diretivas-para-os-bots">Passo 4:
+            Escreva as Diretivas para os Bots</h5>
+            <p><strong>Exemplo de um arquivo robots.txt
+            básico</strong>:</p>
+            <pre><code>User-agent: *
+Disallow: /admin/
+Disallow: /privado.html</code></pre>
+            <ul>
+            <li><strong>Explicação</strong>:
+            <ul>
+            <li><code>User-agent: *</code> aplica as regras para todos
+            os bots.</li>
+            <li><code>Disallow: /admin/</code> impede o rastreamento do
+            diretório <code>/admin/</code>.</li>
+            <li><code>Disallow: /privado.html</code> impede o
+            rastreamento do arquivo <code>privado.html</code>.</li>
+            </ul></li>
+            </ul>
+            <h5
+            id="passo-5-especifique-diretivas-específicas-se-necessário">Passo
+            5: Especifique Diretivas Específicas se Necessário</h5>
+            <p>Se você precisar ter regras diferentes para bots
+            específicos:</p>
+            <pre><code>User-agent: Googlebot
+Disallow: /no-google/
+
+User-agent: Bingbot
+Disallow: /no-bing/
+
+User-agent: *
+Disallow:</code></pre>
+            <ul>
+            <li><strong>Explicação</strong>:
+            <ul>
+            <li>As regras específicas para <code>Googlebot</code> e
+            <code>Bingbot</code> são aplicadas a eles.</li>
+            <li><code>User-agent: *</code> é uma regra geral para todos
+            os outros bots.</li>
+            </ul></li>
+            </ul>
+            <h5
+            id="passo-6-adicione-a-referência-ao-sitemap-opcional">Passo
+            6: Adicione a Referência ao Sitemap (Opcional)</h5>
+            <p>Se você tiver um sitemap, pode incluí-lo no
+            <code>robots.txt</code>:</p>
+            <pre><code>Sitemap: https://www.seusite.com/sitemap.xml</code></pre>
+            <ul>
+            <li><strong>Benefício</strong>: Ajuda os mecanismos de busca
+            a encontrar seu sitemap facilmente.</li>
+            </ul>
+            <h5 id="passo-7-salve-o-arquivo">Passo 7: Salve o
+            Arquivo</h5>
+            <ul>
+            <li>Certifique-se de que o arquivo está nomeado exatamente
+            <code>robots.txt</code>.</li>
+            <li>O arquivo deve estar no <strong>formato de texto
+            simples</strong> (UTF-8 sem BOM é recomendado).</li>
+            </ul>
+            <h5
+            id="passo-8-faça-upload-do-arquivo-para-a-raiz-do-seu-site">Passo
+            8: Faça Upload do Arquivo para a Raiz do Seu Site</h5>
+            <ul>
+            <li><p>O arquivo <code>robots.txt</code> deve estar
+            localizado na raiz do seu site, acessível no caminho:</p>
+            <pre><code>https://www.seusite.com/robots.txt</code></pre></li>
+            <li><p><strong>Procedimento</strong>:</p>
+            <ul>
+            <li>Use um cliente FTP, SFTP ou o gerenciador de arquivos do
+            seu provedor de hospedagem para enviar o arquivo para a
+            pasta raiz (geralmente chamada de <code>public_html</code>
+            ou <code>www</code>).</li>
+            </ul></li>
+            </ul>
+            <h5 id="passo-9-teste-o-seu-robots.txt">Passo 9: Teste o Seu
+            Robots.txt</h5>
+            <ul>
+            <li><p><strong>Valide o arquivo</strong>: Use ferramentas
+            online para validar e testar seu <code>robots.txt</code>,
+            como:</p>
+            <ul>
+            <li><strong>Google Search Console Robots.txt Tester</strong>
+            (para sites verificados):
+            <ul>
+            <li>Acesse o <a
+            href="https://search.google.com/search-console/robots-testing-tool">Testador
+            de robots.txt do Google</a>.</li>
+            <li>Selecione sua propriedade e visualize o arquivo.</li>
+            <li>Teste URLs específicas para ver se são permitidas ou
+            bloqueadas.</li>
+            </ul></li>
+            </ul></li>
+            <li><p><strong>Verifique o acesso</strong>:</p>
+            <ul>
+            <li>Abra um navegador e acesse
+            <code>https://www.seusite.com/robots.txt</code> para
+            garantir que o arquivo está acessível.</li>
+            </ul></li>
+            </ul>
+            <h5 id="passo-10-monitore-o-comportamento-dos-bots">Passo
+            10: Monitore o Comportamento dos Bots</h5>
+            <ul>
+            <li><p><strong>Google Search Console</strong>:</p>
+            <ul>
+            <li>Use o Google Search Console para monitorar como o
+            Googlebot está rastreando seu site.</li>
+            <li>Verifique se há erros de rastreamento ou se páginas
+            importantes estão sendo bloqueadas inadvertidamente.</li>
+            </ul></li>
+            <li><p><strong>Análises do Site</strong>:</p>
+            <ul>
+            <li>Revise os logs do servidor ou utilize ferramentas de
+            análise para monitorar a atividade dos bots.</li>
+            <li>Ajuste o <code>robots.txt</code> conforme necessário
+            para otimizar o rastreamento.</li>
+            </ul></li>
+            </ul>
+            <h4 id="boas-práticas-e-cuidados">Boas Práticas e
+            Cuidados</h4>
+            <ul>
+            <li><p><strong>Não Bloqueie CSS e JavaScript
+            Necessários</strong>: Certifique-se de não bloquear arquivos
+            CSS, JS ou imagens que são essenciais para renderizar suas
+            páginas corretamente. O Google recomenda permitir o acesso a
+            recursos necessários para compreender o conteúdo da
+            página.</p></li>
+            <li><p><strong>Evite Bloquear o Conteúdo que Deseja
+            Indexar</strong>: Bloquear páginas que você deseja que
+            apareçam nos resultados de busca pode impedir que elas sejam
+            indexadas corretamente.</p></li>
+            <li><p><strong>Não Dependa do Robots.txt para
+            Segurança</strong>: O <code>robots.txt</code> não impede que
+            páginas sejam acessadas diretamente. Para conteúdo que
+            precisa ser protegido, utilize autenticação adequada ou
+            restrinja o acesso via servidor web.</p></li>
+            <li><p><strong>Atualize o Arquivo Conforme o Site
+            Evolui</strong>: Se alterar a estrutura do site ou adicionar
+            novas áreas, atualize o <code>robots.txt</code> para
+            refletir essas mudanças.</p></li>
+            <li><p><strong>Comente Seu Arquivo para Facilidade de
+            Manutenção</strong>: Você pode adicionar comentários ao
+            arquivo para esclarecer o propósito de certas diretivas.</p>
+            <pre><code># Bloqueia a área de administração
+User-agent: *
+Disallow: /admin/</code></pre></li>
+            </ul>
+            <h4 id="conclusão-1">Conclusão</h4>
+            <p>O arquivo <code>robots.txt</code> é uma ferramenta
+            simples, mas poderosa, para controlar como os mecanismos de
+            busca interagem com o seu site. Criá-lo e mantê-lo
+            adequadamente ajuda a otimizar o rastreamento, proteger
+            áreas sensíveis e melhorar o SEO em geral.</p>
+            <p>Seguindo este tutorial, você será capaz de implementar um
+            <code>robots.txt</code> eficaz para o seu site estático,
+            assegurando que os robôs de busca rastreiem e indexem seu
+            conteúdo da maneira desejada.</p>
+            <h4 id="recursos-adicionais">Recursos Adicionais</h4>
+            <ul>
+            <li><p><strong>Documentação Oficial do Google sobre
+            robots.txt</strong>:</p>
+            <ul>
+            <li><a
+            href="https://developers.google.com/search/docs/advanced/robots/intro?hl=pt-BR">Controle
+            de rastreamento e indexação: robots.txt</a></li>
+            </ul></li>
+            <li><p><strong>Ferramentas de Teste</strong>:</p>
+            <ul>
+            <li><a
+            href="https://search.google.com/search-console/robots-testing-tool?hl=pt-BR">Testador
+            de robots.txt do Google</a></li>
+            <li><a
+            href="https://www.bing.com/webmasters/robots-txt-analyzer">Analyzador
+            de robots.txt do Bing</a></li>
+            </ul></li>
+            </ul>
+            <p>Ao dedicar tempo para configurar corretamente seu
+            <code>robots.txt</code>, você estará aprimorando a
+            eficiência com que seu site é rastreado e garantindo que os
+            mecanismos de busca tenham acesso ao conteúdo que mais
+            importa.</p>
+        </main>
+
+        <aside class="toc-sidebar">
+            <!-- ToC será inserido aqui -->
+        </aside>
+    </div>
+
+    <script src="assets/meu-script.min.js"></script>
+</body>
+</html>

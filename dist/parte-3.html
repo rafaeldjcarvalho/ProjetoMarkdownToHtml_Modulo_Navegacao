@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>"parte-3.md"</title>
+    <link rel="stylesheet" href="assets/meu-estilo.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- MENU será inserido aqui -->
+            <nav class='sidebar'><ul>
+<li><a href='index.html'>Index</a></li>
+<li><a href='parte-1.html'>Parte 1</a></li>
+<li><a href='parte-2.html'>Parte 2</a></li>
+<li><a href='parte-3.html'>Parte 3</a></li>
+<li><a href='sitemap.html'>Sitemap</a></li>
+</ul></nav>
+        </aside>
+
+        <main class="markdown-body">
+<nav aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Index</a></li>
+<li class="breadcrumb-item active" aria-current="page">Parte-3</li>
+</ol></nav>
+
+            <!-- Breadcrumbs e ToC serão inseridos automaticamente -->
+            <p>!!!__ INCLUDE “header.template.md” __!!!</p>
+            <h2 class="ca-pg-title">
+            Parte 3: Uma Nova Proposta de Entrega
+            </h2>
+            <h2 id="módulos-do-projeto-sugestão">3.1. Módulos do Projeto
+            (sugestão)</h2>
+            <p>Para facilitar a integração entre os módulos, cada módulo
+            pode ser um programa (um .exe) independente (ou vários .exe
+            se preferir).</p>
+            <ul>
+            <li>Cada módulo possui sua função no sistema. P.ex. (a) um
+            programa para ler o cabeçalho markdown do arquivo, para
+            obter p.ex. o título da página, autor, data, data de
+            modificação, termos de busca para o SEO etc. (b) outro
+            programa para gerar o ToC (sumário) das páginas web. (c)
+            outro para verificar a disponibilidade das urls …</li>
+            <li>Os programa devem ser CLI (<em>Command Line
+            Interface</em>), para rodar na linha de comando (cmd). Ele
+            possui argumentos de entrada e gera uma saída (em geral,
+            arquivos).</li>
+            </ul>
+            <h3 id="módulo-1-estrutura-e-navegação">Módulo 1: Estrutura
+            e Navegação</h3>
+            <ul>
+            <li><p><span class="d-2">Navegação</span>: Geração
+            automática de menus, painéis de navegação, breadcrumbs
+            (trilha de navegação), ToC (Table of Contents, tabela de
+            conteúdo) … para facilitar a navegação no site.</p></li>
+            <li><p><span class="d-2">Suporte a Templates</span>: Para
+            facilitar a reutilização de componentes como cabeçalhos,
+            rodapés e outros elementos padronizados. Similar ao que o
+            framework React faz. P.ex.</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode js"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> Footer <span class="op">=</span> ({ siteName<span class="op">,</span> year }) <span class="kw">=&gt;</span> (</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>footer<span class="op">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>p<span class="op">&gt;</span>© {year} {siteName}<span class="op">.</span> <span class="at">Todos</span> os direitos reservados<span class="op">.&lt;/</span>p<span class="op">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>footer<span class="op">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> App <span class="op">=</span> () <span class="kw">=&gt;</span> (</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;</span>div<span class="op">&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>Header <span class="op">/&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">...</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        <span class="op">&lt;</span>Footer siteName<span class="op">=</span><span class="st">&quot;Meu Site&quot;</span> year<span class="op">=</span>{<span class="dv">2024</span>} <span class="op">/&gt;</span> <span class="co">// Exemplo de uso</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="op">&lt;/</span>div<span class="op">&gt;</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="módulo-2-aparência">Módulo 2: Aparência</h3>
+            <ul>
+            <li><p><span class="d-2">Customização Visual</span>:
+            Implementação de um sistema temas para permitir a
+            personalização da aparência do site, adaptando-se às
+            preferências do usuário e identidade visual desejada.</p>
+            <ul>
+            <li><span class="d-3">Temas pré-definidos</span>: Oferecer
+            uma gama de temas para o usuário escolher, tais como github,
+            github-dark, vscode, vscode-dark, material, dracula, dentre
+            outros.</li>
+            <li><span class="d-3">Customização do tema, com suporte a
+            SCSS</span>: Permitir que o usuário customize facilmente o
+            tema corrente usando SCSS.</li>
+            <li><span class="d-3">Alternância entre os Modos Light /
+            Dark</span>
+            <ul>
+            <li>Com apenas um clique o usuário pode definir o modo de
+            exibição light (claro) ou dark (escuro).</li>
+            <li>O navegador deve lembrar o modo de exibição que o
+            usuário escolheu. Então mesmo que o usuário feche o
+            navegador, quando ele voltar para o site, o modo de exibi
+            cão deve ser o mesmo usado anteriormente. Sugestão: use
+            LocalStorage.</li>
+            </ul></li>
+            </ul></li>
+            <li><p><span class="d-2">Realce de Sintaxe de Código</span>
+            (sintax highlight): Para melhorar a legibilidade e
+            compreensão do código, utilizando diversas linguagens de
+            programação.</p></li>
+            <li><p><span class="d-2">Copiar Código</span>:
+            Funcionalidade copiar código com um clique utilizando
+            JavaScript.</p></li>
+            <li><p><span class="d-2">Modo Leitura</span>: Com apenas um
+            clique o usuário pode entrar no modo de leitura, onde apenas
+            o conteúdo do <code>&lt;main&gt;</code> é exibido em tela,
+            os demais componentes são ocultados.</p></li>
+            <li><p><span class="d-2">Tempo de Leitura</span>: Logo
+            abaixo o título da página, exibir o tempo de leitura da
+            página, por exemplo: <code>Tempo de leitura: 30 min</code>.
+            Em média uma pessoa lê 200..250 palavras/minuto.</p></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="módulo-3-busca-e-seo">Módulo 3: Busca e SEO</h3>
+            <ul>
+            <li><p><span class="d-2">Busca Local</span>: Mecanismos de
+            indexação para permitir a busca de conteúdo dentro do
+            site.</p>
+            <ul>
+            <li>Permitir filtrar páginas por data de criação,
+            atualização, categoria e/ou palavras-chaves. Ambos, devem
+            estar definidos nos metadados do Markdown.</li>
+            </ul></li>
+            <li><p><span class="d-2">Otimização para Mecanismos de Busca
+            (SEO)</span>: Incorporação de técnicas de SEO, como
+            metadados, URLs amigáveis, visando melhorar o posicionamento
+            do site em mecanismos de busca.</p></li>
+            <li><p><span class="d-2">Geração de Feed RSS</span>: Criação
+            automática de feeds RSS para facilitar a disseminação de
+            atualizações do site. O feed RSS permite que os leitores do
+            site recebam notificações e acompanhem as novidades de forma
+            prática, sem precisar visitar o site
+            frequentemente.</p></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="módulo-4-otimização-do-site">Módulo 4: Otimização do
+            Site</h3>
+            <ul>
+            <li><span class="d-2">Otimização de Recursos</span>:
+            <ul>
+            <li>Minificação de arquivos CSS, JavaScript e HTML.</li>
+            <li>Otimização de imagens para reduzir o tempo de
+            carregamento das páginas.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="não-constitui-uma-tarefa">Não constitui uma
+            tarefa</h3>
+            <ul>
+            <li><p><span class="d-2">Conversão Markdown para
+            HTML</span>: Para criação do website.</p></li>
+            <li><p><span class="d-2">Páginas Responsivas (NÃO é
+            preciso)</span>: Por simplificação, o site NÃO precisa se
+            adequar a diferentes tamanhos de telas.</p></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="funcionalidades-adicionais">3.2. Funcionalidades
+            Adicionais</h2>
+            <ol type="1">
+            <li><p><span class="d-2">Controle de Acesso</span>:
+            Restringir o acesso ao site apenas aos usuários
+            autorizados.</p></li>
+            <li><p><span class="d-2">Integração com Google
+            Analytics</span>: Monitorar métricas de acesso ao site
+            através de ferramentas de análise.</p></li>
+            <li><p><span class="d-2">Sistema de Comentários</span>:
+            Permitir que os usuários deixem comentários nas páginas do
+            site.</p></li>
+            <li><p><span class="d-2">Integração com Redes
+            Sociais</span>: Facilitar o compartilhamento de conteúdo e a
+            presença do site em redes sociais.</p></li>
+            <li><p><span class="d-2">Exportar para a Página</span>:
+            Disponibilizar opções de download do conteúdo da página em
+            formatos como Markdown, PDF e DOCX.</p></li>
+            <li><p><span class="d-2">Suporte a Multilínguas</span>: (a)
+            Apresentar o site em diferentes idiomas. (b) Oferecer opções
+            de tradução, como os tradutores fornecidos pelo
+            Google.</p></li>
+            </ol>
+            <p>!!!__ INCLUDE “footer.template.md” __!!!</p>
+        </main>
+
+        <aside class="toc-sidebar">
+            <!-- ToC será inserido aqui -->
+        </aside>
+    </div>
+
+    <script src="assets/meu-script.min.js"></script>
+</body>
+</html>

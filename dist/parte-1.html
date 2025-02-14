@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>"parte-1.md"</title>
+    <link rel="stylesheet" href="assets/meu-estilo.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- MENU será inserido aqui -->
+            <nav class='sidebar'><ul>
+<li><a href='index.html'>Index</a></li>
+<li><a href='parte-1.html'>Parte 1</a></li>
+<li><a href='parte-2.html'>Parte 2</a></li>
+<li><a href='parte-3.html'>Parte 3</a></li>
+<li><a href='sitemap.html'>Sitemap</a></li>
+</ul></nav>
+        </aside>
+
+        <main class="markdown-body">
+<nav aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Index</a></li>
+<li class="breadcrumb-item active" aria-current="page">Parte-1</li>
+</ol></nav>
+
+            <!-- Breadcrumbs e ToC serão inseridos automaticamente -->
+            <p>!!!__ INCLUDE “header.template.md” __!!!</p>
+            <h2 class="ca-pg-title">
+            Parte 1: Sobre o Projeto e sua Avaliação
+            </h2>
+            <p>–h:thin———————————————————————————-</p>
+            <div class="bloco-my-1">
+            <p>!!!__ ToC __!!!</p>
+            </div>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="funcionalidades-principais">1.1. Funcionalidades
+            Principais</h2>
+            <ul>
+            <li>O programa deve buscar todos os documentos Markdown
+            (.md) na pasta <code>./docs</code> (documents) e subpastas,
+            convertendo-os em HTML.</li>
+            <li>O site gerado deve ser armazenado em <code>./dist</code>
+            (distribution), mantendo a mesma hierarquia de diretórios
+            presente em <code>./docs</code>.</li>
+            <li>Os recursos (assets) - imagens, vídeos, CSS, JS … -
+            originalmente armazenados na pasta
+            <code>./docs/assets</code> devem ser copiados para
+            <code>./dist/assets</code> durante o processo de
+            conversão.</li>
+            </ul>
+            <p>A ferramenta a ser desenvolvida deverá apresentar as
+            seguintes funcionalidades:</p>
+            <ol type="1">
+            <li><p><strong>Navegação</strong>: Geração automática de
+            menus, painéis de navegação e breadcrumbs para facilitar a
+            navegação no site.</p></li>
+            <li><p><strong>Customização Visual</strong>: Implementação
+            de um sistema de templates ou temas para permitir a
+            personalização da aparência do site, adaptando-se às
+            preferências do usuário e identidade visual
+            desejada.</p></li>
+            <li><p><strong>Suporte a Templates</strong>: Para facilitar
+            a reutilização de componentes como cabeçalhos, rodapés e
+            outros elementos padronizados.</p></li>
+            <li><p><strong>Realce de Sintaxe de Código</strong> (sintax
+            highlight): Para melhorar a legibilidade e compreensão do
+            código, utilizando diversas linguagens de
+            programação.</p></li>
+            <li><p><strong>Copiar Código</strong>: Funcionalidade copiar
+            código com um clique utilizando JavaScript.</p></li>
+            <li><p><strong>Busca Local</strong>: Mecanismos de indexação
+            para permitir a busca de conteúdo dentro do site.</p></li>
+            <li><p><strong>Otimização para Mecanismos de Busca
+            (SEO)</strong>: Incorporação de técnicas de SEO, como
+            metadados, URLs amigáveis, visando melhorar o posicionamento
+            do site em mecanismos de busca.</p></li>
+            <li><p><strong>Geração de Feed RSS</strong>: Criação
+            automática de feeds RSS para facilitar a disseminação de
+            atualizações do site. O feed RSS permite que os leitores do
+            site recebam notificações e acompanhem as novidades de forma
+            prática, sem precisar visitar o site
+            frequentemente.</p></li>
+            <li><p><strong>Otimização de Recursos</strong>: Minificação
+            e otimização de arquivos CSS, JavaScript e imagens para
+            melhorar o desempenho e tempo de carregamento do
+            site.</p></li>
+            <li><p><strong>Conversão Markdown para HTML</strong>: Para
+            criação do website.</p></li>
+            <li><p><strong>Páginas Responsivas (NÃO é preciso)</strong>:
+            Por simplificação, o site NÃO precisa se adequar a
+            diferentes tamanhos de telas.</p></li>
+            </ol>
+            <p>–h:thin———————————————————————————-</p>
+            <p>Exemplo de um web site estático para servir de
+            inspiração, o <a
+            href="https://docusaurus.io/">Docusaurus</a>.</p>
+            <div class="ca-center">
+            <img src="assets/site-exemplo-docusaurus.webp" width="940px">
+            </div>
+            <ul>
+            <li>Observe na imagem acima:
+            <ul>
+            <li>NavBar, no topo da página.</li>
+            <li>“Sumário do site”, os documentos, na barra lateral
+            esquerda.</li>
+            <li>ToC, Table of Contents (tabela de conteúdo) da página,
+            na barra lateral direita.</li>
+            <li>Busca Local, no topo direito da página.</li>
+            <li>Breadcrumbs (trilhas de navegação), logo acima do título
+            da página.</li>
+            </ul></li>
+            <li>Ao navegar por está página, nos blocos de código você
+            verá o ícone “Copiar Código”, conforme a imagem abaixo.</li>
+            </ul>
+            <div class="ca-center">
+            <img src="assets/exemplo-bt-copiar-codigo.webp" width="244px">
+            </div>
+            <p>–h:thin———————————————————————————-</p>
+            <h4
+            id="exemplo-da-estrutura-de-diretórios-dos-docs-markdown"><strong>Exemplo
+            da estrutura de diretórios dos docs Markdown</strong></h4>
+            <ul>
+            <li>Seu script deve varrer a pasta <code>./docs</code> para
+            processar e converter os documentos Markdown em HTML.</li>
+            </ul>
+            <p>Conteúdo da pasta <code>./docs</code> versus
+            <code>./dist</code>, a pasta gerada pelo script.</p>
+            <div class="ca-center">
+            <img src="assets/pasta-docs-vs-dist.webp" width="700px">
+            </div>
+            <p>–h:thin———————————————————————————-</p>
+            <h4 id="review-da-pasta-.dist"><strong>Review da pasta
+            ./dist</strong></h4>
+            <ul>
+            <li>Durante a conversão, o script gera a <code>./dist</code>
+            com o arquivos do site gerado. Os arquivos html gerados, as
+            imagens …, + os recursos gerados pelo script, tais como os
+            estilos CSS, os arquivos JS, as imagens (p.ex. logo,
+            favicon).
+            <ul>
+            <li>A estrutura de diretório foi mantida.</li>
+            <li>Novos recursos (assets) foram adicionados a
+            <code>./dist/assets</code> em
+            <code>arquivos-de-meu-script</code>. Responsáveis pela
+            aparência e pela interatividade do site.
+            <ul>
+            <li><code>css/meu-estilo.min.css</code>, minha versão do CSS
+            github-dark customizado.</li>
+            <li><code>img/ca-icons.svg</code> +
+            <code>logo-ifs.svg</code> + <code>warning-icon.svg</code>,
+            alguns ícones, logotipo do IFS, ícone warning.</li>
+            <li><code>js/ca-minimap.min.js</code>, neste exemplo
+            adicione um minimap no site. Incluído via script ao ver a
+            tag <code>@@@[__ INCLUDE ca-minimap __]@@@</code> no doc
+            Markdown.</li>
+            <li><code>js/highlight.min.js</code>, responsável pelo
+            realce de código (sintax highlight). Incluído via script ao
+            encontrar um bloco de código.</li>
+            <li><code>js/meu-script.min.js</code>, biblioteca JavaScript
+            padrão de meu gerador.</li>
+            </ul></li>
+            <li>Os arquivos CSS e JS estão minificados,
+            <code>.min.css</code> e <code>.min.js</code>.</li>
+            <li><code>site-content.txt</code> conteúdo do site (apenas
+            texto), gerado pelo script. Usado na busca local por
+            <code>lunr.min.js</code>.</li>
+            <li>As imagens estão no formato <code>.webp</code> (provê
+            maior compressão, mantendo a mesma qualidade).</li>
+            <li>As imagens do usuário foram mantidas no próprio
+            diretório <code>./dist/assets</code>.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h4 id="exemplos-reais-para-inspiração"><strong>Exemplos
+            reais para inspiração</strong></h4>
+            <ul>
+            <li>Considere estudar outros geradores de sites web
+            estáticos para inspiração. Exemplos:
+            <ul>
+            <li><a href="https://docs.gitbook.com/" target="_blank">GitBook</a></li>
+            <li><a href="https://vitepress.dev/guide/what-is-vitepress" target="_blank">VitePress</a></li>
+            <li><a href="https://docusaurus.io/docs" target="_blank">Docusaurus</a></li>
+            <li><a href="https://docsify.js.org/#/?id=docsify" target="_blank">Docsify</a></li>
+            <li><a href="https://codehike.org/" target="_blank">Code
+            Hike</a></li>
+            <li><a href="https://gohugo.io/documentation/" target="_blank">Hugo</a></li>
+            <li><a href="https://rust-lang.github.io/mdBook/" target="_blank">MdBook</a></li>
+            </ul></li>
+            <li>Como converter documentos Markdown em HTML:
+            <ul>
+            <li><a href="https://pandoc.org/" target="_blank">Pandoc
+            Documentation</a></li>
+            </ul></li>
+            <li>Sintaxe do Markdown:
+            <ul>
+            <li><a href="https://sindresorhus.com/github-markdown-css/" target="_blank">GitHub
+            Markdown CSS demo</a></li>
+            <li><a href="https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax" target="_blank">Sintaxe
+            do Markdown by GitHub</a></li>
+            <li><a href="https://github.github.com/gfm/" target="_blank">GitHub
+            Flavored Markdown Spec</a></li>
+            <li><a href="https://www.markdownguide.org/" target="_blank">Markdown
+            Guide</a></li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="diretrizes-de-desenvolvimento">1.2. Diretrizes de
+            Desenvolvimento</h2>
+            <p>As seguintes diretrizes devem ser consideradas durante o
+            desenvolvimento do projeto:</p>
+            <ol type="1">
+            <li><p><strong>Linguagem de Programação</strong>: Livre
+            escolha. Sugestão: Python, C# ou Java. Considere a sua
+            familiaridade com a linguagem e se está adequada ao
+            problema. Para este projeto, performance e paralelismo é um
+            ponto a ser considerado.</p></li>
+            <li><p><strong>Modularização</strong>: O código deverá ser
+            modularizado, utilizando funções e classes para organizar as
+            diferentes funcionalidades, preferencialmente com um módulo
+            para cada funcionalidade.</p></li>
+            <li><p><strong>Simplicidade</strong>: A solução deve ser
+            simples de usar para o usuário final. Se possível (é
+            recomendação), sem a necessidade de instalação de programas
+            adicionais. No máximo exigir apenas a instalação do
+            interpretador Python ou do Java JRE etc. OBSERVAÇÃO:
+            instalação é diferente de usar um programa portável, onde
+            basta o EXE estar presente. Você pode usar quantos softwares
+            de terceiros desejar, desde que sejam portáteis (não requer
+            instalação).</p></li>
+            <li><p><strong>Integração com Ferramentas Externas</strong>:
+            É permitido o uso de softwares de terceiros, tais como: (a)
+            usar o programa <code>ImageMagick</code> para converter
+            imagens .png em .webp, para reduzir o tamanho dos arquivos
+            para agilizar o carregamento das páginas; (b) usar o
+            <code>Pandoc</code> para converter os arquivos Markdown
+            (.md) em HTML.</p></li>
+            <li><p><strong>Execução</strong>: O script deve ser
+            executado via linha de comando (CLI), permitindo ao usuário
+            especificar parâmetros e opções. É essencial fornecer
+            feedback claro ao usuário durante o processo de conversão
+            (ex: logs de progresso, mensagens de erro).</p>
+            <ul>
+            <li>Adicionalmente (se desejar), para para facilitar a
+            interação com o usuário final, pode-se implementar interface
+            de acesso gráfica (GUI), desde que está invoque o script
+            CLI.</li>
+            </ul></li>
+            <li><p><strong>Múltiplos Scripts</strong>: Se achar
+            conveniente, a solução pode ser compostas por múltiplos
+            scripts escritos em linguagens diferentes. Por exemplo: (a)
+            Um programa escrito em C# para ajustar os hyperlinks,
+            substituindo as extensões <code>.md</code> por
+            <code>.html</code>. (b) Um script JavaScript para realizar a
+            minificação dos arquivos CSS e JavaScript. (c) Um script
+            Python para gerar automaticamente índices ou tabelas de
+            conteúdo. (d) …</p>
+            <ul>
+            <li>IMPORTANTE: deve existir um script principal, para
+            interação com o usuário. A partir de um único comando, tal
+            como:
+            <code>.\markdown-to-html.ps1 -prjDir "/meus-arquivos-em-markdown"</code>
+            o site deve ser gerado.</li>
+            </ul></li>
+            <li><p><strong>Configuração</strong>: Permitir configurações
+            através de um arquivo YAML para personalização de opções
+            como temas, estrutura de navegação, entre outros.</p></li>
+            <li><p><strong>Documentação e Uso</strong>:</p>
+            <ul>
+            <li><em>Arquivo README.md</em>: Incluir um arquivo README.md
+            descrevendo o programa e, principalmente, contendo
+            instruções para execução do programa.</li>
+            <li><em>Exemplos Práticos</em>: Fornecer exemplos práticos
+            de uso, demonstrando como usar o programa, assim como
+            exemplos de respostas do programa.</li>
+            <li><em>Comentários no Código</em>: Adicionar comentários
+            claros e concisos no código, explicando a funcionalidade das
+            principais seções e linhas de código. Isso facilitará a
+            compreensão e manutenção do código por outros
+            desenvolvedores.</li>
+            </ul></li>
+            </ol>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="entrega-do-projeto">1.3. Entrega do Projeto</h2>
+            <h3 id="com-relação-as-entregas-parciais">1.3.1. Com Relação
+            as Entregas PARCIAIS</h3>
+            <ul>
+            <li><p>As entregas parciais devem ser realizadas
+            semanalmente, preferencialmente após a aula, através de um
+            commit no GitHub. Essas entregas são para fins de
+            acompanhamento do professor com relação ao andamento do
+            trabalho.</p></li>
+            <li><p>Crie repositório GitHub e compartilhe com seu
+            professor.</p></li>
+            <li><p><strong>IMPORTANTE. Mantenha o arquivo CHANGELOG.md
+            atualizado</strong>, ou como é mais conhecido em português
+            “O que já de novo?”, para cada Commit. Em outras palavras,
+            você irá descrever para seu professor tudo que fez desde a
+            última entrega. Exemplo:</p>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># O que há de novo? (ChangeLog)</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.0.2] - 2024-12-31 - Add Toggle para as Seções</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adicionado</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Toggle para as Seções, contrair / expandir as seções com clique do mouse.</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">### Corrigido</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Correção de bugs no Minimap alpha.</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">### Melhorado</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Melhoria na documentação do código.</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">### TODO (coisas a fazer)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Próxima entrega:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Adicionar botão para o usuário alternar entre tema light ou dark com um clique.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="ss">    - </span>Criar opção para evitar toggle de uma seção, &#39;ca-ignore-fold&#39;.</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## [0.0.1] - 2024-12-24 - Meu Primeiro Commit</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">### Adicionado</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Conversão de Markdown para HTML.</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Tema github-dark customizado.</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Minimap alpha lançado.</span></code></pre></div></li>
+            </ul>
+            <h3 id="com-relação-a-entrega-final">1.3.2. Com relação a
+            Entrega FINAL</h3>
+            <p class="ca-alert-warning">
+            A parte escrita deve ser entregue ao menos 3 dias antes da
+            apresentação do trabalho.
+            </p>
+            <ol type="1">
+            <li><strong>Código-Fonte Completo:</strong>
+            <ul>
+            <li>Todos os arquivos do programa, organizados em pastas
+            apropriadas. Exceto pastas de bibliotecas de terceiros, tais
+            como <code>node_modules</code> (NodeJS) ou <code>venv</code>
+            (python).</li>
+            <li>O código deve estar bem documentado, com comentários
+            explicativos quando necessário.</li>
+            </ul></li>
+            <li><strong>Arquivo READ-ME.md:</strong>
+            <ul>
+            <li>Breve descrição do programa.</li>
+            <li>Guia de uso, mostrando como executar o programa.</li>
+            <li>Exemplos de uso e respostas esperadas.</li>
+            <li>Instruções de instalação das dependências (se
+            necessário). P.ex. criação do ambiente virtual Python (venv)
+            e da instalação das bibliotecas via requirements.txt.</li>
+            </ul></li>
+            <li><strong>Arquivos de Configuração:</strong>
+            <ul>
+            <li>Arquivos de exemplo de configuração que demonstrem como
+            personalizar o programa.</li>
+            </ul></li>
+            <li><strong>Exemplos de Conteúdo:</strong>
+            <ul>
+            <li>Uma coleção de arquivos Markdown de exemplo.</li>
+            <li>O site gerado a partir desses arquivos, demonstrando as
+            funcionalidades do programa.</li>
+            </ul></li>
+            <li><strong>Relatório Técnico:</strong>
+            <ul>
+            <li>Descrição da arquitetura do programa e das principais
+            decisões de design.</li>
+            <li>Discussão sobre os desafios enfrentados (importante) e
+            soluções implementadas.</li>
+            <li>Sugestões de trabalhos futuros, que não puderam ser
+            realizados devido ao tempo e/ou escopo do trabalho.</li>
+            </ul></li>
+            </ol>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="critérios-de-avaliação">1.4. Critérios de
+            Avaliação</h2>
+            <p class="ca-alert-warning">
+            <strong>IMPORTANTE</strong>: O projeto é individual, MAS o
+            artigo pode ser elaborado em grupo de até 4 pessoas.
+            </p>
+            <h3 id="funcionalidades-implementadas-20">1.4.1.
+            Funcionalidades Implementadas (20%)</h3>
+            <ul>
+            <li><strong>Atendimento aos Requisitos Básicos:</strong>
+            <ul>
+            <li>Implementação correta das funcionalidades exigidas.</li>
+            <li>Aplicativo funcionando sem falhas críticas.</li>
+            </ul></li>
+            <li><strong>Execução:</strong>
+            <ul>
+            <li>Comportamento esperado em todas as funcionalidades
+            implementadas.</li>
+            <li>Tratamento adequado de erros e exceções.
+            <ul>
+            <li><em>Validação de Entradas</em>: Todas as entradas do
+            usuário e do arquivo de configuração devem ser
+            validadas.</li>
+            <li><em>Captura de Exceções</em>: O script deve capturar
+            exceções de forma proativa, evitando falhas
+            catastróficas.</li>
+            <li><em>Mensagens de Erro</em>: Mensagens de erro claras e
+            informativas devem ser exibidas ao usuário, indicando a
+            causa do erro e possíveis soluções.</li>
+            </ul></li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="qualidade-do-código-e-documentação-20">1.4.2.
+            Qualidade do Código e Documentação (20%)</h3>
+            <ul>
+            <li><strong>Organização e Estruturação do Código:</strong>
+            <ul>
+            <li>Código limpo e organizado de forma lógica, buscando
+            dividir as responsabilidades corretamente entre as
+            classes.</li>
+            <li>Uso adequado de recursos e boas práticas de
+            programação.</li>
+            </ul></li>
+            <li><strong>Documentação do Código:</strong>
+            <ul>
+            <li>Código bem documentado com docstrings (sugestão, no
+            estilo Google).</li>
+            <li>Clareza e objetividade nos comentários e na nomeação de
+            variáveis e métodos.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="interface-e-experiência-do-usuário-5">1.4.3.
+            Interface e Experiência do Usuário (5%)</h3>
+            <ul>
+            <li><strong>Design da Interface e Usabilidade:</strong>
+            <ul>
+            <li><em>Interface NÃO-gráfica, na linha de
+            comando.</em></li>
+            <li>Interface intuitiva e agradável.</li>
+            <li><em>Feedback</em>: Exibir mensagens para o usuário
+            informando o que está sendo executado.</li>
+            <li><em>Mensagens de Erro</em>: Mensagens de erro claras e
+            informativas devem ser exibidas ao usuário, indicando a
+            causa do erro e possíveis soluções.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="artigo-acadêmico-40-grupo-de-até-4-pessoas">1.4.4.
+            Artigo Acadêmico (40%), grupo de até 4 pessoas</h3>
+            <ul>
+            <li><strong>A elaboração do artigo acadêmico pode ser feita
+            em grupos de até 4 pessoas</strong>. O grupo deve avaliar os
+            projetos individuais de seus pares e escolher o melhor deles
+            para servir de base para o artigo. P.ex. supondo três
+            projetos - A, B e C - se o grupo considerar B, o melhor
+            projeto. Então, o artigo será escrito com base no projeto
+            B.</li>
+            <li>Redação de um artigo detalhando o projeto
+            desenvolvido.</li>
+            <li>Estrutura conforme normas acadêmicas, incluindo
+            introdução, metodologia, resultados e conclusão.</li>
+            <li>Clareza na exposição das ideias, coerência e coesão
+            textual.</li>
+            <li>Originalidade: Enfatizar a importância da originalidade
+            do trabalho, evitando plágio ou cópia de outros
+            projetos.</li>
+            <li>Análise Crítica: Avaliar a capacidade dos alunos de
+            analisarem criticamente os métodos de autenticação,
+            apontando não apenas os benefícios, mas também as limitações
+            e os possíveis riscos.</li>
+            <li>Fundamentação Teórica: Valorizar a correta fundamentação
+            teórica do trabalho, com citações de autores e publicações
+            relevantes na área de segurança da informação.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="apresentação-do-projeto-15">1.4.5. Apresentação do
+            Projeto (15%)</h3>
+            <ul>
+            <li><p><strong>Clareza e Organização da
+            Apresentação:</strong></p>
+            <ul>
+            <li>Apresentação estruturada, cobrindo todos os aspectos
+            importantes do projeto.</li>
+            <li>Uso de recursos visuais para auxiliar na compreensão
+            (slides, demonstrações, etc.).</li>
+            </ul></li>
+            <li><p><strong>Demonstração das
+            Funcionalidades:</strong></p>
+            <ul>
+            <li>Demonstração prática do programa, evidenciando as
+            funcionalidades implementadas.</li>
+            <li>Capacidade de explicar decisões técnicas e desafios
+            enfrentados.</li>
+            </ul></li>
+            <li><p><strong>Tempo</strong>: 20..30 minutos</p></li>
+            <li><p><strong>Sabatina Pós Apresentação</strong>:</p>
+            <ul>
+            <li>Responda com precisão e clareza às perguntas dos
+            Alunos/Professores.</li>
+            <li>Encare a sabatina como uma mera formalidade, uma
+            oportunidade para demonstrar seu profundo conhecimento sobre
+            o trabalho realizado e os tópicos abordados.</li>
+            <li>A sabatina é sobre todo o trabalho, vai além da parte
+            apresentada.</li>
+            <li><em>ATENÇÃO: A sabatina tem o poder de zerar seu
+            trabalho</em> caso fique evidente que você não é o autor,
+            não domina o conteúdo apresentado ou os temas discutidos.
+            Prepare-se adequadamente para evitar essa situação.</li>
+            <li><em>Se o aluno faltar ou recusar a apresentação, ele
+            ainda deverá passar pela sabatina</em>, pois é obrigatória.
+            Recusá-la equivale a admitir que não é o autor do trabalho,
+            implicando nota zero (0.0) para o trabalho.</li>
+            </ul></li>
+            <li><p><strong>Recursos Disponíveis</strong>:</p>
+            <ul>
+            <li>Para a apresentação, o IFS Itabaiana fornece os
+            seguintes itens básicos: (a) datashow; (b) computador com
+            Windows 10, configurado como usuário comum; (c) laser de
+            apresentação; e (d) caixas de som.</li>
+            <li>Qualquer outro recurso adicional necessário deve ser
+            trazido pelo apresentador.</li>
+            </ul></li>
+            <li><p><strong>AVISO: A Apresentação será Gravada</strong>
+            apenas para fins de registro, e usada exclusivamente caso o
+            aluno conteste a sua nota.</p></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="funcionalidades-extras-pontuação-extra">1.4.6.
+            Funcionalidades Extras (pontuação-extra)</h3>
+            <ul>
+            <li><p><strong>Implementação dos Itens Opcionais
+            Propostos:</strong></p>
+            <ul>
+            <li>Funcionalidades adicionais funcionando
+            corretamente.</li>
+            <li>Integração harmoniosa com as funcionalidades
+            básicas.</li>
+            </ul></li>
+            <li><p><strong><del>Interface Gráfica</del> (não
+            recomendo)</strong>: Desenvolver uma interface gráfica
+            amigável para a app.</p></li>
+            <li><p><strong>O que Sugerir:</strong></p>
+            <ul>
+            <li>Espaço aberto para suas sugestões.</li>
+            <li>O valor da pontuação extra é proporcional ao grau de
+            dificuldade e qualidade da solução apresentada.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="suporte-e-dúvidas">1.5. Suporte e Dúvidas</h2>
+            <ul>
+            <li><p><strong>Em caso de dúvidas, entre em contato com o
+            professor</strong>, opções:</p>
+            <ul>
+            <li>Atendimento presencial, durante as aulas da disciplina
+            e/ou no horário de atendimento ao aluno.</li>
+            <li>Atendimento remoto, via Google Meet e/ou Classroom.</li>
+            <li>Sintam-se à vontade. Entrem em contato a qualquer hora
+            do dia, da noite ou madrugada. Só não vale ficar com
+            dúvidas.</li>
+            </ul></li>
+            <li><p>Utilize os fóruns de discussão da disciplina, Google
+            Classroom, para compartilhar questões e soluções com os
+            colegas.</p></li>
+            <li><p>Mantenha contato frequente com seu professor,
+            informando-o sobre a evolução do trabalho.</p></li>
+            </ul>
+            <p><strong>Observação Final:</strong></p>
+            <ul>
+            <li>Lembre-se de que a documentação é parte fundamental no
+            desenvolvimento de softwares. Manter um código bem
+            documentado facilitará a manutenção, a expansão futura do
+            aplicativo e demonstrará seu comprometimento com as boas
+            práticas de programação.</li>
+            </ul>
+            <p>!!!__ INCLUDE “footer.template.md” __!!!</p>
+        </main>
+
+        <aside class="toc-sidebar">
+            <!-- ToC será inserido aqui -->
+        </aside>
+    </div>
+
+    <script src="assets/meu-script.min.js"></script>
+</body>
+</html>

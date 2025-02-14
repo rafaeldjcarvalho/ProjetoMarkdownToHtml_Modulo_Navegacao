@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>"parte-2.md"</title>
+    <link rel="stylesheet" href="assets/meu-estilo.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <!-- MENU será inserido aqui -->
+            <nav class='sidebar'><ul>
+<li><a href='index.html'>Index</a></li>
+<li><a href='parte-1.html'>Parte 1</a></li>
+<li><a href='parte-2.html'>Parte 2</a></li>
+<li><a href='parte-3.html'>Parte 3</a></li>
+<li><a href='sitemap.html'>Sitemap</a></li>
+</ul></nav>
+        </aside>
+
+        <main class="markdown-body">
+<nav aria-label="breadcrumb"><ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Index</a></li>
+<li class="breadcrumb-item active" aria-current="page">Parte-2</li>
+</ol></nav>
+
+            <!-- Breadcrumbs e ToC serão inseridos automaticamente -->
+            <p>!!!__ INCLUDE “header.template.md” __!!!</p>
+            <h2 class="ca-pg-title">
+            Parte 2: Especificações Técnicas
+            </h2>
+            <p>–h:thin———————————————————————————-</p>
+            <div class="bloco-my-1">
+            <p>!!!__ ToC __!!!</p>
+            </div>
+            <p>–h:thin———————————————————————————-</p>
+            <h2
+            id="tarefas-de-pré-processamento-para-os-docs-markdown">2.1.
+            Tarefas de Pré-processamento para os Docs Markdown</h2>
+            <p>Antes de converter os documentos Markdown em HTML é
+            preciso pre-processá-los, para:</p>
+            <ul>
+            <li>Extrair os metadados do arquivo Markdown (.md)</li>
+            <li>Realizar algumas substituições de texto de necessárias,
+            p.ex. tags</li>
+            <li>Processar algumas tags personalizadas</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="extrair-os-metadados-do-arquivo-markdown-.md">2.1.1.
+            Extrair os metadados do arquivo Markdown (.md)</h3>
+            <ul>
+            <li>Definir o título da página, autor, data de criação, data
+            de atualização, keywords …</li>
+            <li>Otimizar o SEO (Search Engine Optimization, otimização
+            para motores de busca), para ajudar os motores de busca
+            (p.ex. Google) indexarem a página.</li>
+            <li>Geração do Feed RSS, isto é, do arquivo
+            <code>rss.xml</code>. Para facilitar a divulgação das
+            atualizações de conteúdo do site.</li>
+            <li>Geração do Sitemap e Robots.txt: os metadados são
+            utilizados para criar o <code>sitemap.xml</code> e o arquivo
+            <code>robots.txt</code>, essenciais para correta indexação
+            do site pelos motores de busca. Para mais informações, ver
+            (link)[sitemap.md].</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h4 id="exemplo-de-metadados-em-um-arquivo-markdown">Exemplo
+            de Metadados em um arquivo Markdown</h4>
+            <ul>
+            <li>Os metadados devem estar no início do documento, em um
+            bloco especial denominado <em>front matter</em>. Abaixo, um
+            exemplo ilustrativo:</li>
+            </ul>
+            <div class="sourceCode" id="cb1"><pre
+            class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>id: id-do-documento</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>title: &quot;Exemplo Completo de Metadados&quot;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>description: &quot;Um exemplo abrangente de metadados em um arquivo markdown.&quot;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sidebar_label: &quot;Nome que você verá no sumário (ou barra de navegação) do site.&quot;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>slug: /caminho-para-este-documento</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>date: 2024-10-01</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>author: &quot;Seu Nome&quot;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tags: [&quot;exemplo&quot;, &quot;markdown&quot;, &quot;metadados&quot;]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>keywords: [&quot;palavras-chave usadas pelos motores de busca&quot;, &quot;markdown&quot;]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>image: /assets/img/miniatura-da-pagina-usada-em-compartilhamento.png</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>draft: false</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>freq_de_atualizacao: monthly</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>data_atualizacao: 2024-12-01</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>---</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Restante do Markdown --&gt;</span></span></code></pre></div>
+            <ul>
+            <li><p>Os campos <code>freq_de_atualizacao</code> e
+            <code>data_atualizacao</code> não são metadados padrão do
+            Markdown.</p></li>
+            <li><p>Tags vs. Keywords:</p>
+            <ul>
+            <li>Tags: Utilizadas para organizar e categorizar o conteúdo
+            dentro do site. Geralmente são visíveis aos usuários e
+            facilitam a navegação.</li>
+            <li>Keywords: Destinadas a otimizar o SEO da página,
+            auxiliando os motores de busca na indexação do conteúdo. Não
+            são, em geral, visíveis para os usuários.</li>
+            <li>draft: Indica se o documento é um rascunho (draft=true)
+            ou está pronto para publicação (draft=false). O script de
+            processamento deve verificar este campo antes de converter o
+            documento. Se draft=true, o documento não deve ser
+            publicado.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h4 id="exemplo-de-um-feed-rss-arquivo-rss.xml">Exemplo de
+            um Feed RSS, arquivo <code>rss.xml</code></h4>
+            <div class="sourceCode" id="cb2"><pre
+            class="sourceCode rss"><code class="sourceCode xml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">&quot;1.0&quot;</span><span class="ot"> encoding=</span><span class="st">&quot;UTF-8&quot;</span> <span class="fu">?&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">rss</span><span class="ot"> version=</span><span class="st">&quot;2.0&quot;</span>&gt;</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">channel</span>&gt;</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">title</span>&gt;Nome do Seu Site&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">link</span>&gt;http://www.seusite.com.br&lt;/<span class="kw">link</span>&gt;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">description</span>&gt;Descrição do conteúdo do seu site&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">language</span>&gt;pt-br&lt;/<span class="kw">language</span>&gt;</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">item</span>&gt;</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">title</span>&gt;Título da Postagem&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">link</span>&gt;http://www.seusite.com.br/postagem1&lt;/<span class="kw">link</span>&gt;</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">description</span>&gt;Resumo da primeira postagem.&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">pubDate</span>&gt;Mon, 02 Dec 2024 17:21:00 GMT&lt;/<span class="kw">pubDate</span>&gt;</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">guid</span>&gt;http://www.seusite.com.br/postagem1&lt;/<span class="kw">guid</span>&gt;</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">item</span>&gt;</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">item</span>&gt;</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">title</span>&gt;Título da Segunda Postagem&lt;/<span class="kw">title</span>&gt;</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">link</span>&gt;http://www.seusite.com.br/postagem2&lt;/<span class="kw">link</span>&gt;</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">description</span>&gt;Resumo da segunda postagem.&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">pubDate</span>&gt;Mon, 02 Dec 2024 16:00:00 GMT&lt;/<span class="kw">pubDate</span>&gt;</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">guid</span>&gt;http://www.seusite.com.br/postagem2&lt;/<span class="kw">guid</span>&gt;</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">item</span>&gt;</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="co">&lt;!-- Mais itens podem ser adicionados aqui --&gt;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">channel</span>&gt;</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">rss</span>&gt;</span></code></pre></div>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="algumas-substituições">2.1.2. Algumas
+            Substituições</h3>
+            <ul>
+            <li><p><span class="d-2">Substitua as tags <code>---</code>
+            por <code>&lt;hr&gt;</code></span>: O <code>pandoc</code>,
+            programa utilizado para converter arquivos Markdown (.md) em
+            HTML, não reconhece a tag <code>---</code> (linha
+            horizontal). Portanto, o script precisa substitui-lá por
+            <code>&lt;hr&gt;</code> para evitar erros durante a
+            conversão. Sugestão, utilização da expressão regular
+            <code>^----*$</code>, que identifica todas as sequências de
+            três ou mais hífens consecutivos <code>---</code> que
+            iniciam uma linha e são finalizadas com um hífen.</p></li>
+            <li><p><span class="d-2">Substituir todos os hyperlinks
+            terminados em <code>.md</code></span> (extensão do markdown)
+            por <code>.html</code>.</p></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="processamento-das-tags">2.1.3. Processamento das
+            tags</h3>
+            <p>Exemplos de substituições a serem realizadas pelo script
+            durante o processamento do markdown (.md):</p>
+            <ul>
+            <li>Ao encontrar a tag
+            <code>[! include "header.template.md" !]</code>, o conteúdo
+            do arquivo <code>header.template.md</code> (cabeçalho da
+            página) deve ser incluído no local da tag. Sugestão, guarde
+            os templates na pasta <code>./templates</code>.</li>
+            <li>Ao encontrar <code>@@@[quest 3.1.]@@@</code>, a tag deve
+            ser substituída por
+            <code>&lt;span class="quest"&gt;3.1.&lt;/span&gt;</code>.</li>
+            <li>Ao encontrar
+            <code>@@@[h1.titulo Título do Doc]@@@</code>, substituir por
+            <code>&lt;h1 class="titulo"&gt;Título do Doc&lt;/h1&gt;</code>.
+            O mesmo vale para outras tags, p.ex h2, h3, h4 … span …</li>
+            <li>Para
+            <code>@@@[beg div.quest-dificil]@@@ ... bloco de código ... @@@[end div.quest-dificil]@@@</code>,
+            substituir por
+            <code>&lt;div class="quest-dificil"&gt; ... &lt;/div&gt;</code>.
+            Para facilitar, considere que o usuário fecha corretamente
+            as tags, por exemplo, todas os divs são acertos e fechados
+            corretamente.</li>
+            <li>Por simplificação, considere que as diretivas (ou tags
+            de template) <code>[!</code> e <code>!]</code> não aparecem
+            no texto, eliminando a necessidade de tratamento de
+            caracteres de escape.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="customização-visual">2.2. Customização Visual</h2>
+            <ul>
+            <li>Aplicar estilos CSS para melhorar a aparência das
+            páginas HTML. Sugestão: github-dark-theme e
+            github-light-theme.</li>
+            <li>Permitir que o usuário escolha entre pelo menos dois
+            temas pré-definidos ou adicione seu próprio tema
+            personalizado, arquivo <code>custom.css</code>.</li>
+            <li>A configuração do website deverá ser feita através do
+            arquivo <code>config.yml</code>. Exemplo de um arquivo de
+            configuração:</li>
+            </ul>
+            <div class="sourceCode" id="cb3"><pre
+            class="sourceCode yml"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">site_name</span><span class="kw">:</span><span class="at"> Meu Site Estático</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">base_url</span><span class="kw">:</span><span class="at"> http://www.meusite.com</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Seu Nome&quot;</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">description</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Descrição do site estático&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">favicon</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;logo-ifs.svg&quot;</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">toc_depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">3</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurações de construção</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">build</span><span class="kw">:</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">minify_html</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">minify_css</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">minify_js</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">generate_sitemap</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # gerar sitemap.xml</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">generate_robots</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">    #       robots.txt  </span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">generate_feed_rss</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">  #       rss.xml</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">add_local_search</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">   # adicionar o recurso de busca local</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">optimze_imgs</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co">       # otimizar imagens para carregamento rápido</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Entre outras configurações ...</span></span></code></pre></div>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="realce-de-sintaxe-de-código-sintax-highlight">2.3.
+            Realce de Sintaxe de Código (sintax highlight)</h2>
+            <p>Para melhorar a legibilidade e compreensão do código,
+            utilizando diversas linguagens de programação.</p>
+            <ul>
+            <li>É muito simples, basicamente, consiste em importar a
+            biblioteca js <code>hightlight.js</code> sempre que seu
+            script encontrar a tag
+            <code>&lt;/code&gt;&lt;/pre&gt;</code> no arquivo HTML
+            gerado.
+            <ul>
+            <li><code>hightlight.js</code>, ver <a
+            href="https://github.com/highlightjs/highlight.js">https://github.com/highlightjs/highlight.js</a>.</li>
+            <li>Essa biblioteca requer o import do estilo CSS
+            github-dark.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="navegação">2.4. Navegação</h2>
+            <p>Geração automática do ToC, menu de navegação e
+            breadcrumbs para facilitar a navegação no site.</p>
+            <p>–h:thin———————————————————————————-</p>
+            <h3
+            id="toc-table-of-contents-tabela-de-conteúdo-da-página">2.4.1.
+            ToC (Table of Contents, tabela de conteúdo) da página</h3>
+            <ul>
+            <li>Se o documento Markdown, conter a tag
+            <code>@@@[__ ToC __]@@@</code>, o script deve construir a
+            tabela ToC e coloca-la na barra lateral direita da
+            página.</li>
+            <li>A ToC é formada pelo título de todas as seções da
+            página, h1, h2, … até h6.</li>
+            <li>Permita ao usuário definir o nível de profundidade do
+            ToC através do arquivo <code>config.yml</code>, propriedade
+            <code>toc_depth</code>, cujo valor padrão é 3, que equivale
+            ao nível h3.</li>
+            <li>Por exemplo, supondo o Markdown a seguir, vamos gerar
+            seu ToC com nível de profundidade (toc_depth) = 3.</li>
+            </ul>
+            <div class="sourceCode" id="cb4"><pre
+            class="sourceCode html"><code class="sourceCode html"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a># Título do documento, h1</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>@@@[__ ToC __]@@@</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>## Seção 1, h2</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>## Seção 2, h2</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>### SubSeção 2.1, h3</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>#### SubSubSeção 2.1.1, h4</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>#### SubSubSeção 2.1.2, h4</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>##### SubSubSubSeção 2.1.2.1, h5</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>## Seção 3</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+            <ul>
+            <li>A tag <code>@@@[__ ToC __]@@@</code> (sumário) em um
+            arquivo, resulta em um novo Markdown exibido a seguir.</li>
+            </ul>
+            <div class="sourceCode" id="cb5"><pre
+            class="sourceCode html"><code class="sourceCode html"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a># Título do documento, h1</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- Sumário (ToC) gerado automaticamente --&gt;</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>- [Seção 1, h2]  <span class="co">&lt;!-- Link para Seção 1 --&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>- [Seção 2, h2]  <span class="co">&lt;!-- Link para Seção 2 --&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    - [SubSeção 2.1, h3]</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>- [Seção 3, h2]</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>## Seção 1, h2</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>## Seção 2, h2</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>### SubSeção 2.1, h3</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>#### SubSubSeção 2.1.1, h4</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>#### SubSubSeção 2.1.2, h4</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>##### SubSubSubSeção 2.1.2.1, h5</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- `doc_depth=3`, não vai para o ToC --&gt;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>## Seção 3</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>...</span></code></pre></div>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="menu-de-navegação">2.4.2. Menu de Navegação</h3>
+            <ul>
+            <li>O script deve gerar automaticamente o menu de navegação
+            do site (“o sumário do site”) para permitir o usuário
+            navegar pelas páginas do site.</li>
+            <li>O menu deve ser posicionado na barra lateral esquerda da
+            página.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="breadcrumbs">2.4.3. Breadcrumbs</h3>
+            <ul>
+            <li>O script deve gerar os breadcrumbs (trilhas de
+            navegação) para auxiliar na orientação do usuário dentro do
+            site, proporcionando uma visualização clara do caminho
+            percorrido. Exemplos de implementação podem ser encontrados
+            em
+            <a href="https://getbootstrap.com/docs/5.3/components/breadcrumb/#example" target="_blank">Bootstrap
+            Breadcrumbs</a>.</li>
+            <li>Os breadcrumbs devem ser posicionados logo após o início
+            da tag main da página.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="busca-local">2.5. Busca Local</h2>
+            <ul>
+            <li>Adicionar a funcionalidade de busca local para permitir
+            que os usuários realizem pesquisas dentro do site. Para tal,
+            utilize bibliotecas como:
+            <ul>
+            <li><strong>Lunr.js</strong>: Detalhes e documentação
+            disponíveis em <a href="https://lunrjs.com/">Lunr.js</a>.
+            Nota: Para o correto funcionamento da biblioteca, é
+            necessário abrir o site por meio de um servidor local. A
+            forma mais simples de iniciar um servidor local é executando
+            o seguinte comando no terminal na pasta de
+            <code>index.html</code>:
+            <code>python -m http.server 3000</code>. Posteriormente,
+            abra o navegador e acesse <code>localhost:3000</code>.</li>
+            </ul></li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="copiar-código">2.6. Copiar Código</h2>
+            <ul>
+            <li>Funcionalidade copiar código com um clique utilizando
+            JavaScript.</li>
+            <li>Basicamente consiste em uma função JavaScript que varre
+            a página HTML após seu carregamento, buscando a classe
+            <code>.div.sourceCode</code> para adicionar ao bloco o botão
+            <code>Copiar Código</code> associado a função js
+            <code>copiarCodigo</code>.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="otimização-do-site-para-carregamento-rápido">2.7.
+            Otimização do site para carregamento rápido</h2>
+            <h3 id="minificação-de-arquivos">2.7.1. Minificação de
+            arquivos</h3>
+            <p>Remove espaços em branco, comentários e quebras de linha
+            dos arquivos CSS e JavaScript para reduzir seu tamanho.</p>
+            <ul>
+            <li>Utilize ferramentas como UglifyJS para JavaScript e
+            cssnano para CSS. Exemplo de minificação:</li>
+            </ul>
+            <div class="sourceCode" id="cb6"><pre
+            class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Minificar JavaScript</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>uglifyjs script<span class="op">.</span><span class="fu">js</span> <span class="op">-</span>o script<span class="op">.</span><span class="fu">min</span><span class="op">.</span><span class="fu">js</span> <span class="op">-</span>c <span class="op">-</span>m</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Minificar CSS</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>cssnano estilo<span class="op">.</span><span class="fu">css</span> estilo<span class="op">.</span><span class="fu">min</span><span class="op">.</span><span class="fu">css</span></span></code></pre></div>
+            <ul>
+            <li><span class="d-2">Redução de solicitações HTTP</span>:
+            Após a minificação dos arquivos, busque combinar os arquivos
+            CSS e JavaScript para diminuir o número de solicitações
+            HTTP.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h3 id="otimização-das-imagens">2.7.2. Otimização das
+            Imagens</h3>
+            <ol type="1">
+            <li><p><strong>Remoção de Metadados EXIF</strong>
+            (importante por questões de privacidade): Metadados EXIF
+            (Exchangeable Image File Format) são informações embutidas
+            nas imagens digitais que fornecem detalhes sobre como e
+            quando a foto foi tirada, além das configurações da câmera
+            usada. P.ex. data e hora de quando a foto foi tirada,
+            localização geográfica (GPS), modelo da câmera e lente,
+            …</p></li>
+            <li><p><strong>Redimensionamento das imagens</strong>: As
+            imagens devem ser redimensionadas para corresponder
+            exatamente ao tamanho em que serão exibidas na tela. Por
+            exemplo, se uma imagem ocupa 640x480 pixels na página, mas
+            possui uma resolução original de 4K (3840x2160 pixels), isso
+            resulta em um tamanho de arquivo maior do que o necessário,
+            prejudicando o tempo de carregamento. Redimensione a imagem
+            para 640x480 pixels para agilizar o carregamento da
+            página.</p></li>
+            <li><p><strong>Ajuste do DPI (Dots Per Inch)</strong>: O DPI
+            padrão é 96 DPI. No entanto, o sistema deve permitir que o
+            usuário defina um valor padrão diferente no arquivo de
+            configuração <code>config.yml</code>. Além disso, deve-se
+            possibilitar que o usuário especifique o DPI de uma imagem
+            individualmente.</p>
+            <ul>
+            <li><strong>Qualidade de imagem e DPI adaptativo
+            (IGNORAR)</strong>. Adapte a qualidade da imagem com base
+            nas condições da rede do usuário. Em resumo, você armazena
+            várias versões da mesma imagem, cada uma gerada para uma
+            dada velocidade de conexão. P.ex. redes lentas, recebem uma
+            imagem de menor qualidade, agilizando assim o carregamento
+            da página.</li>
+            </ul></li>
+            <li><p><strong>Conversão automática das imagens para
+            formatos modernos</strong>: Adote formatos de imagem
+            modernos, como o WebP, que proporcionam melhor compressão e
+            qualidade. Para imagens vetoriais, aplique compressão sem
+            perda de qualidade. Para imagens rasterizadas, utilize uma
+            compressão em torno de 85%. A imagem final deve ser aquela
+            com o menor tamanho de arquivo entre o original e o
+            otimizado, mantendo sempre a mesma qualidade
+            visual.</p></li>
+            <li><p><strong>Lazy Loading</strong> (carregamento
+            preguiçoso): Carrega as imagens apenas quando elas estão
+            prestes a entrarem na área visível do usuário, agilizando o
+            carregamento dos demais elementos da página.</p></li>
+            <li><p><strong>Exceções na otimização</strong>: O usuário
+            deve ter a opção de registrar exceções, indicando quais
+            imagens não devem ser otimizadas. Isso é útil para casos
+            onde a qualidade original da imagem é essencial e não pode
+            ser comprometida.</p></li>
+            <li><p><strong>Sintaxe para inserção de imagens com
+            ajustes</strong>: Ao inserir imagens utilizando Markdown, a
+            sintaxe padrão é:
+            <code>![Texto Alternativo a Imagem](assets/imgs/imagem-test.jpg)</code>.
+            Para incorporar os ajustes mencionados, a tag deve ser
+            modificada para refletir as opções desejadas:</p>
+            <ul>
+            <li><p><em>Especificar a resolução da imagem</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[resolucao=640x480]</code>.</p></li>
+            <li><p><em>Especificar o DPI da imagem</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[300dpi]</code>.</p></li>
+            <li><p><em>Manter metadados EXIF</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[manter-exif]</code>.
+            Mantém os metadados, mas realiza as otimizações. Nesse caso,
+            dispare um WARNING para o usuário, alertando sobre as
+            questões de privacidade e que os metadados estão sendo
+            mantidos.</p></li>
+            <li><p><em>Não otimizar a imagem</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[nao-otimizar]</code>.
+            Neste caso, nenhuma otimização é realizada e o arquivo
+            original é utilizado. OBS. os metadados EXIF são removidos.
+            Para não remover os metadados
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[nao-otimizar + manter-exif]</code>.</p></li>
+            <li><p><em>Não lazy loading</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[nao-lazy-loading]</code>.
+            A imagem é carregada normalmente.</p></li>
+            <li><p><em>Manter a resolução original</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[manter-resolucao]</code>.
+            Aqui, o formato da imagem pode ser alterado (por exemplo,
+            convertida para WebP) e o DPI pode ser ajustado, mas a
+            resolução original é preservada.</p></li>
+            <li><p><em>Manter o DPI original</em>:
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[manter-dpi]</code>.
+            Semelhante ao item anterior, porém o DPI original é mantido
+            enquanto outros aspectos podem ser otimizados.</p></li>
+            <li><p><strong><b>Nota Importante</b></strong></p>
+            <ul>
+            <li>As opções podem ser combinadas através de
+            <code>' + '</code> (com espaços). P.ex. para não otimizar a
+            imagem &amp; não lazy loading,
+            <code>![Texto](assets/imgs/imagem-test.jpg)@[nao-otimizar + nao-lazy-loading]</code>.</li>
+            <li>As opções de não-otimização estão listadas acima. Caso o
+            usuário digite outras opções, um erro deve ser lançado e o
+            script interrompido.</li>
+            </ul></li>
+            </ul></li>
+            </ol>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="conversão-de-markdown-para-html">2.8. Conversão de
+            Markdown para HTML</h2>
+            <p>Utilize o programa <code>pandoc</code> para converter
+            arquivos markdown (.md) em arquivos HTML, garantindo que a
+            conversão preserve a estrutura e a formatação dos documentos
+            originais.</p>
+            <ul>
+            <li>O script deve buscar todos os documentos Markdown (.md)
+            na pasta <code>./docs</code> e subpastas, convertendo-os em
+            HTML.</li>
+            <li>O site gerado deve ser armazenado em <code>./dist</code>
+            (distribution). Mantendo a mesma hierarquia de diretórios de
+            <code>./docs</code> (documents).</li>
+            </ul>
+            <p>Como template para o pandoc sugiro o html a seguir.</p>
+            <div class="sourceCode" id="cb7"><pre
+            class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;!DOCTYPE</span> html<span class="dt">&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">html</span><span class="ot"> lang</span><span class="op">=</span><span class="st">&quot;pt-BR&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">meta</span><span class="ot"> charset</span><span class="op">=</span><span class="st">&quot;UTF-8&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">title</span><span class="dt">&gt;</span>$title$<span class="dt">&lt;/</span><span class="kw">title</span><span class="dt">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;icon&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;{workdir}assets/logo-ifs.svg&quot;</span><span class="ot"> type</span><span class="op">=</span><span class="st">&quot;image/svg+xml&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">link</span><span class="ot"> rel</span><span class="op">=</span><span class="st">&quot;stylesheet&quot;</span><span class="ot"> href</span><span class="op">=</span><span class="st">&quot;{workdir}assets/meu-estilo.min.css&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- IMPORTs CSS aqui --&gt;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- IMPORTs Javascript no HEAD --&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- Análise se seus JS precisam ser incluídos no HEAD ou no BODY --&gt;</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">head</span><span class="dt">&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">main</span><span class="ot"> class</span><span class="op">=</span><span class="st">&quot;markdown-body&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>        $body$</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;/</span><span class="kw">main</span><span class="dt">&gt;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- IMPORTs Javascript no BODY --&gt;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">script</span><span class="ot"> src</span><span class="op">=</span><span class="st">&quot;{workdir}assets/meu-script.min.js&quot;</span><span class="dt">&gt;&lt;/</span><span class="kw">script</span><span class="dt">&gt;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">body</span><span class="dt">&gt;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">html</span><span class="dt">&gt;</span></span></code></pre></div>
+            <p>Algumas considerações.</p>
+            <ul>
+            <li><code>{workdir}</code> (diretório de trabalho): É uma
+            variável de ambiente de meu script, usada realizar ajustes
+            no caminho dos recursos (imagens, css, js …).</li>
+            <li><code>&lt;main class="markdown-body"&gt;</code>: Utilize
+            a classe <code>markdown-body</code> apenas se estiver usando
+            algum CSS baseado no github, que é meu caso.</li>
+            <li><code>&lt;!-- IMPORTs CSS aqui --&gt;</code>: Tag usada
+            por meu script para localizar o local no qual os CSSs
+            precisam ser inseridos.</li>
+            <li><code>&lt;!-- IMPORTs Javascript no HEAD --&gt;</code>:
+            Similar a tag anterior. Define o local para insert dos
+            JavaScript no <code>&lt;head&gt;</code>.</li>
+            <li><code>&lt;!-- IMPORTs Javascript no BODY --&gt;</code>:
+            Define o local dos JavaScript antes do final da tag
+            <code>&lt;/body&gt;</code>.</li>
+            <li><code>meu-estilo.min.css</code>: Uma versão
+            personalizada do github-dark.</li>
+            <li><code>meu-script.min.js</code>: Um merge minificado de
+            meus scripts JavaScript.</li>
+            <li><code>$title$</code> e <code>$body$</code>: São
+            variáveis do pandoc. O HTML gerado substitui a string <span
+            class="math inline"><em>b</em><em>o</em><em>d</em><em>y</em></span>.</li>
+            </ul>
+            <p>Para converter um doc Markdown em HTML usando Pandoc,
+            pode utilizar o comando abaixo:</p>
+            <div class="sourceCode" id="cb8"><pre
+            class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\pandoc<span class="op">.</span><span class="fu">exe</span> <span class="st">&quot;exemplo.md&quot;</span> <span class="op">-</span>o <span class="st">&quot;exemplo.html&quot;</span> <span class="op">--</span>title <span class="st">&quot;Página Exemplo&quot;</span> <span class="op">--</span>template <span class="st">&quot;template.html&quot;</span></span></code></pre></div>
+            <p>–h:thin———————————————————————————-</p>
+            <h4
+            id="gerenciamento-de-arquivos-e-estrutura-de-diretórios">Gerenciamento
+            de Arquivos e Estrutura de Diretórios</h4>
+            <ul>
+            <li>Após a conversão ainda é preciso copiar a pasta
+            <code>./docs/assets</code> padrão para
+            <code>./dist/assets</code>, a pasta de destino do site
+            gerado.</li>
+            <li>A pasta <code>./docs/assets</code> padrão é usada por
+            todos os websites do gerador.</li>
+            <li>Relembrando, <code>./docs/assets</code> = ‘recursos’.
+            P.ex. imagens, CSS, JavaScript etc. Em geral, possui as
+            subpastas: <code>img</code>, <code>css</code> e
+            <code>js</code>.</li>
+            </ul>
+            <p>–h:thin———————————————————————————-</p>
+            <h2 id="habilitação-de-cache-no-navegador">2.9. Habilitação
+            de cache no navegador</h2>
+            <ul>
+            <li>Após a geração do site, gere um arquivo de otimização do
+            servidor web voltado para seu site. Exiba as instruções de
+            uso na tela do usuário para que ele tenha ciencia.</li>
+            </ul>
+            <div class="sourceCode" id="cb9"><pre
+            class="sourceCode apache"><code class="sourceCode apache"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo para servidor Apache</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;IfModule</span><span class="at"> mod_headers.c</span><span class="fu">&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">&lt;FilesMatch</span><span class="at"> &quot;\.(js|css|png|jpg|jpeg|gif|ico)$&quot;</span><span class="fu">&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>        Header<span class="st"> set Cache-Control &quot;public, max-age=2592000&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">&lt;/FilesMatch&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;/IfModule&gt;</span></span></code></pre></div>
+            <div class="sourceCode" id="cb10"><pre
+            class="sourceCode apache"><code class="sourceCode apache"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exemplo para servidor Nginx</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>server {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Outras configurações do servidor</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    location ~* \.(js|css|png|jpg|jpeg|gif|ico|svg|webp)$ {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>        expires 30d;</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        add_header Cache-Control &quot;public, max-age=2592000&quot;; # 30 dias</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Outras configurações do servidor</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+            <p>!!!__ INCLUDE “footer.template.md” __!!!</p>
+        </main>
+
+        <aside class="toc-sidebar">
+            <!-- ToC será inserido aqui -->
+        </aside>
+    </div>
+
+    <script src="assets/meu-script.min.js"></script>
+</body>
+</html>
