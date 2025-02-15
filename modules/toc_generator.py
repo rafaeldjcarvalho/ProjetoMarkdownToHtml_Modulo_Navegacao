@@ -3,9 +3,21 @@ import yaml
 import os
 
 def extract_headings(markdown_text, toc_depth=3):
-    """Extrai os títulos do Markdown e gera âncoras para o ToC."""
+    """Extrai os títulos do Markdown e gera âncoras para o ToC, ignorando blocos de código."""
+    
     toc = []
+    inside_code_block = False  # Flag para verificar se estamos dentro de um bloco de código
+
     for line in markdown_text.split("\n"):
+        # Verifica se a linha inicia ou finaliza um bloco de código
+        if line.strip().startswith("```"):
+            inside_code_block = not inside_code_block  # Alterna o estado
+
+        # Se estamos dentro de um bloco de código, ignoramos a linha
+        if inside_code_block:
+            continue
+
+        # Verifica se a linha é um cabeçalho Markdown (h1 até h6)
         match = re.match(r"^(#{1,6}) (.+)", line)
         if match:
             level = len(match.group(1))  # Quantidade de '#'
@@ -13,6 +25,7 @@ def extract_headings(markdown_text, toc_depth=3):
                 title = match.group(2)
                 anchor = title.lower().replace(" ", "-")
                 toc.append((level, title, anchor))
+
     return toc
 
 def generate_toc(markdown_text, toc_depth=3):
@@ -21,14 +34,13 @@ def generate_toc(markdown_text, toc_depth=3):
     if not toc_entries:
         return ""  # Retorna vazio se não houver títulos
 
-    toc_html = ['<aside class="toc-sidebar"><nav><ul>']
-    last_level = 1
+    # Adiciona espaçamento para evitar <pre><code>
+    toc_md = "\n\n<nav>\n<ul>\n"
     for level, title, anchor in toc_entries:
-        indent = "    " * (level - 1)
-        toc_html.append(f'{indent}<li><a href="#{anchor}">{title}</a></li>')
-    toc_html.append('</ul></nav></aside>')
+        toc_md += f"    <li><a href=\"#{anchor}\">{title}</a></li>\n"
+    toc_md += "</ul>\n</nav>\n\n"
 
-    return "\n".join(toc_html)
+    return toc_md
 
 def process_markdown(file_path, config):
     """Processa um arquivo Markdown e insere o ToC corretamente."""

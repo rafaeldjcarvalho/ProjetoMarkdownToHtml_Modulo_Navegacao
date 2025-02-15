@@ -12,16 +12,37 @@ def fix_internal_links(content):
 
 def convert_markdown_to_html(input_file, output_file, config, menu_html):
     """Converte Markdown para HTML, insere menu, breadcrumbs e ToC corretamente."""
+    with open(input_file, "r", encoding="utf-8") as f:
+        md_content = f.read()
+
+    # Expressão regular para capturar a tag !!!__ ToC __!!! dentro de <div>
+    toc_pattern = re.compile(r'(<div class="bloco-my-1">.*?!!!__\s*ToC\s*__!!!.*?</div>)', re.DOTALL)
+
+    toc_html = ""
+    toc_match = toc_pattern.search(md_content)
+    if toc_match:
+        toc_html = generate_toc(md_content, config["toc_depth"])  # Gera o ToC
+        md_content = toc_pattern.sub(toc_html, md_content)  # Substitui a marcação pelo ToC
+
+    # Criar um arquivo temporário para o Markdown modificado
+    temp_md_file = input_file + "_temp.md"
+    with open(temp_md_file, "w", encoding="utf-8") as f:
+        f.write(md_content)
+
+    # Converter o Markdown para HTML usando Pandoc
     pandoc_cmd = [
         config["pandoc_path"],
-        input_file,
+        temp_md_file,
         "-o", output_file,
         "--template", config["template_path"],
         "--metadata", f'title="{os.path.basename(input_file)}"'
     ]
     subprocess.run(pandoc_cmd, check=True)
 
-    # Após conversão, modificar o HTML gerado
+    # Remover o arquivo temporário
+    os.remove(temp_md_file)
+
+    # Modificar o HTML gerado para inserir ToC corretamente na sidebar
     with open(output_file, "r", encoding="utf-8") as f:
         content = f.read()
 
@@ -34,20 +55,16 @@ def convert_markdown_to_html(input_file, output_file, config, menu_html):
     # Inserir o menu na sidebar esquerda
     content = content.replace("<!-- MENU -->", menu_html)
 
-    # Se a página contiver [!__ ToC __!], gerar e inserir o ToC na sidebar direita
-    with open(input_file, "r", encoding="utf-8") as f:
-        md_content = f.read()
-    
-    toc_html = ""
-    if "[!__ ToC __!]" in md_content:
-        toc_html = generate_toc(md_content, config["toc_depth"])
-
     # Se for index.html, remover os breadcrumbs
     if "index.html" in output_file:
         breadcrumbs_html = ""
 
     # Inserir breadcrumbs logo após a abertura da tag <main>
-    content = content.replace("<main class=\"markdown-body\">", f"<main class=\"markdown-body\">\n{breadcrumbs_html}\n{toc_html}")
+    content = content.replace("<main class=\"markdown-body\">", f"<main class=\"markdown-body\">\n{breadcrumbs_html}")
+
+    # Inserir ToC dentro da sidebar direita também
+    if toc_html:
+        content = content.replace("<!-- ToC será inserido aqui -->", f"{toc_html}")
 
     with open(output_file, "w", encoding="utf-8") as f:
         f.write(content)
