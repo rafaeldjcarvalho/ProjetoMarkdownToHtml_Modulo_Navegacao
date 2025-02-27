@@ -5,6 +5,7 @@
     <title>"parte-2.md"</title>
     <link rel="stylesheet" href="assets/meu-estilo.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel='stylesheet' href='styles/style_navigation.css'>
 </head>
 <body>
     <div class="container">
@@ -21,7 +22,7 @@
 
         <main class="markdown-body">
 <nav aria-label="breadcrumb"><ol class="breadcrumb">
-<li class="breadcrumb-item"><a href="index.html">Index</a></li>
+<li class="breadcrumb-item"><a href="Index.html">Index</a></li>
 <li class="breadcrumb-item active" aria-current="page">Parte-2</li>
 </ol></nav>
             <!-- Breadcrumbs e ToC serão inseridos automaticamente -->
@@ -33,67 +34,65 @@
             <nav>
             <ul>
             <li>
-            <a href="#2.1.-tarefas-de-pré-processamento-para-os-docs-markdown">2.1.
+            <a href="#tarefas-de-pré-processamento-para-os-docs-markdown">2.1.
             Tarefas de Pré-processamento para os Docs Markdown</a>
             </li>
             <li>
-            <a href="#2.1.1.-extrair-os-metadados-do-arquivo-markdown-(.md)">2.1.1.
+            <a href="#extrair-os-metadados-do-arquivo-markdown-.html">2.1.1.
             Extrair os metadados do arquivo Markdown (.md)</a>
             </li>
             <li>
-            <a href="#2.1.2.-algumas-substituições">2.1.2. Algumas
+            <a href="#algumas-substituições">2.1.2. Algumas
             Substituições</a>
             </li>
             <li>
-            <a href="#2.1.3.-processamento-das-tags">2.1.3.
-            Processamento das tags</a>
+            <a href="#processamento-das-tags">2.1.3. Processamento das
+            tags</a>
             </li>
             <li>
-            <a href="#2.2.-customização-visual">2.2. Customização
-            Visual</a>
+            <a href="#customização-visual">2.2. Customização Visual</a>
             </li>
             <li>
-            <a href="#2.3.-realce-de-sintaxe-de-código-(sintax-highlight)">2.3.
+            <a href="#realce-de-sintaxe-de-código-sintax-highlight">2.3.
             Realce de Sintaxe de Código (sintax highlight)</a>
             </li>
             <li>
-            <a href="#2.4.-navegação">2.4. Navegação</a>
+            <a href="#navegação">2.4. Navegação</a>
             </li>
             <li>
-            <a href="#2.4.1.-toc-(table-of-contents,-tabela-de-conteúdo)-da-página">2.4.1.
+            <a href="#toc-table-of-contents-tabela-de-conteúdo-da-página">2.4.1.
             ToC (Table of Contents, tabela de conteúdo) da página</a>
             </li>
             <li>
-            <a href="#2.4.2.-menu-de-navegação">2.4.2. Menu de
-            Navegação</a>
+            <a href="#menu-de-navegação">2.4.2. Menu de Navegação</a>
             </li>
             <li>
-            <a href="#2.4.3.-breadcrumbs">2.4.3. Breadcrumbs</a>
+            <a href="#breadcrumbs">2.4.3. Breadcrumbs</a>
             </li>
             <li>
-            <a href="#2.5.-busca-local">2.5. Busca Local</a>
+            <a href="#busca-local">2.5. Busca Local</a>
             </li>
             <li>
-            <a href="#2.6.-copiar-código">2.6. Copiar Código</a>
+            <a href="#copiar-código">2.6. Copiar Código</a>
             </li>
             <li>
-            <a href="#2.7.-otimização-do-site-para-carregamento-rápido">2.7.
+            <a href="#otimização-do-site-para-carregamento-rápido">2.7.
             Otimização do site para carregamento rápido</a>
             </li>
             <li>
-            <a href="#2.7.1.-minificação-de-arquivos">2.7.1. Minificação
-            de arquivos</a>
+            <a href="#minificação-de-arquivos">2.7.1. Minificação de
+            arquivos</a>
             </li>
             <li>
-            <a href="#2.7.2.-otimização-das-imagens">2.7.2. Otimização
-            das Imagens</a>
+            <a href="#otimização-das-imagens">2.7.2. Otimização das
+            Imagens</a>
             </li>
             <li>
-            <a href="#2.8.-conversão-de-markdown-para-html">2.8.
-            Conversão de Markdown para HTML</a>
+            <a href="#conversão-de-markdown-para-html">2.8. Conversão de
+            Markdown para HTML</a>
             </li>
             <li>
-            <a href="#2.9.-habilitação-de-cache-no-navegador">2.9.
+            <a href="#habilitação-de-cache-no-navegador">2.9.
             Habilitação de cache no navegador</a>
             </li>
             </ul>
@@ -675,23 +674,23 @@
 
 <nav>
 <ul>
-    <li><a href="#2.1.-tarefas-de-pré-processamento-para-os-docs-markdown">2.1. Tarefas de Pré-processamento para os Docs Markdown</a></li>
-    <li><a href="#2.1.1.-extrair-os-metadados-do-arquivo-markdown-(.md)">2.1.1. Extrair os metadados do arquivo Markdown (.md)</a></li>
-    <li><a href="#2.1.2.-algumas-substituições">2.1.2. Algumas Substituições</a></li>
-    <li><a href="#2.1.3.-processamento-das-tags">2.1.3. Processamento das tags</a></li>
-    <li><a href="#2.2.-customização-visual">2.2. Customização Visual</a></li>
-    <li><a href="#2.3.-realce-de-sintaxe-de-código-(sintax-highlight)">2.3. Realce de Sintaxe de Código (sintax highlight)</a></li>
-    <li><a href="#2.4.-navegação">2.4. Navegação</a></li>
-    <li><a href="#2.4.1.-toc-(table-of-contents,-tabela-de-conteúdo)-da-página">2.4.1. ToC (Table of Contents, tabela de conteúdo) da página</a></li>
-    <li><a href="#2.4.2.-menu-de-navegação">2.4.2. Menu de Navegação</a></li>
-    <li><a href="#2.4.3.-breadcrumbs">2.4.3. Breadcrumbs</a></li>
-    <li><a href="#2.5.-busca-local">2.5. Busca Local</a></li>
-    <li><a href="#2.6.-copiar-código">2.6. Copiar Código</a></li>
-    <li><a href="#2.7.-otimização-do-site-para-carregamento-rápido">2.7. Otimização do site para carregamento rápido</a></li>
-    <li><a href="#2.7.1.-minificação-de-arquivos">2.7.1. Minificação de arquivos</a></li>
-    <li><a href="#2.7.2.-otimização-das-imagens">2.7.2. Otimização das Imagens</a></li>
-    <li><a href="#2.8.-conversão-de-markdown-para-html">2.8. Conversão de Markdown para HTML</a></li>
-    <li><a href="#2.9.-habilitação-de-cache-no-navegador">2.9. Habilitação de cache no navegador</a></li>
+    <li><a href="#tarefas-de-pré-processamento-para-os-docs-markdown">2.1. Tarefas de Pré-processamento para os Docs Markdown</a></li>
+    <li><a href="#extrair-os-metadados-do-arquivo-markdown-.md">2.1.1. Extrair os metadados do arquivo Markdown (.md)</a></li>
+    <li><a href="#algumas-substituições">2.1.2. Algumas Substituições</a></li>
+    <li><a href="#processamento-das-tags">2.1.3. Processamento das tags</a></li>
+    <li><a href="#customização-visual">2.2. Customização Visual</a></li>
+    <li><a href="#realce-de-sintaxe-de-código-sintax-highlight">2.3. Realce de Sintaxe de Código (sintax highlight)</a></li>
+    <li><a href="#navegação">2.4. Navegação</a></li>
+    <li><a href="#toc-table-of-contents-tabela-de-conteúdo-da-página">2.4.1. ToC (Table of Contents, tabela de conteúdo) da página</a></li>
+    <li><a href="#menu-de-navegação">2.4.2. Menu de Navegação</a></li>
+    <li><a href="#breadcrumbs">2.4.3. Breadcrumbs</a></li>
+    <li><a href="#busca-local">2.5. Busca Local</a></li>
+    <li><a href="#copiar-código">2.6. Copiar Código</a></li>
+    <li><a href="#otimização-do-site-para-carregamento-rápido">2.7. Otimização do site para carregamento rápido</a></li>
+    <li><a href="#minificação-de-arquivos">2.7.1. Minificação de arquivos</a></li>
+    <li><a href="#otimização-das-imagens">2.7.2. Otimização das Imagens</a></li>
+    <li><a href="#conversão-de-markdown-para-html">2.8. Conversão de Markdown para HTML</a></li>
+    <li><a href="#habilitação-de-cache-no-navegador">2.9. Habilitação de cache no navegador</a></li>
 </ul>
 </nav>
 

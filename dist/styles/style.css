@@ -1,0 +1,101 @@
+/* Estilizando o layout com Bootstrap e ajustes personalizados */
+
+body {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    gap: 20px;
+    background-color: #f8f9fa;
+}
+
+/* Menu lateral esquerdo */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-right: 1px solid #dee2e6;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+main.markdown-body {
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* ToC lateral direito */
+.toc-sidebar {
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    border-left: 1px solid #dee2e6;
+    overflow-y: auto;
+}
+
+.toc-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.toc-sidebar li {
+    margin-bottom: 10px;
+}
+
+.toc-sidebar a {
+    text-decoration: none;
+    color: #28a745;
+}
+
+.toc-sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* Breadcrumbs */
+.breadcrumb {
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.breadcrumb-item a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+    text-decoration: underline;
+}
+
