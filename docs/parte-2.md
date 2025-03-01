@@ -1,4 +1,7 @@
-!!!__ INCLUDE "header.template.md" __!!!
+--id: parte-2
+--titulo: Parte 2
+
+<!--Template: header() -->
 
 <h2 class="ca-pg-title">Parte 2: Especificações Técnicas</h2>
 
@@ -402,4 +405,4 @@ server {
 }
 ```
 
-!!!__ INCLUDE "footer.template.md" __!!!
+<!--Template: footer() -->

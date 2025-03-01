@@ -1,4 +1,7 @@
-!!!__ INCLUDE "header.template.md" __!!!
+--id: parte-1
+--titulo: Parte 1
+
+<!--Template: header() -->
 
 <h2 class="ca-pg-title">Parte 1: Sobre o Projeto e sua Avaliação</h2>
 
@@ -310,4 +313,4 @@ As seguintes diretrizes devem ser consideradas durante o desenvolvimento do proj
 
 - Lembre-se de que a documentação é parte fundamental no desenvolvimento de softwares. Manter um código bem documentado facilitará a manutenção, a expansão futura do aplicativo e demonstrará seu comprometimento com as boas práticas de programação.
 
-!!!__ INCLUDE "footer.template.md" __!!!
+<!--Template: footer() -->

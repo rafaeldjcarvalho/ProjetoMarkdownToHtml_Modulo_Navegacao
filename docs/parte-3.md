@@ -1,4 +1,7 @@
-!!!__ INCLUDE "header.template.md" __!!!
+--id: parte-3
+--titulo: Parte 3
+
+<!--Template: header() -->
 
 <h2 class="ca-pg-title">Parte 3: Uma Nova Proposta de Entrega</h2>
 
@@ -94,4 +97,4 @@ Para facilitar a integração entre os módulos, cada módulo pode ser um progra
 
 1. [Suporte a Multilínguas]{.d-2}: (a) Apresentar o site em diferentes idiomas. (b) Oferecer opções de tradução, como os tradutores fornecidos pelo Google.
 
-!!!__ INCLUDE "footer.template.md" __!!!
+<!--Template: footer() -->

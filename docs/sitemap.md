@@ -1,3 +1,8 @@
+--id: sitemap
+--titulo: Sitemap
+
+<!--Template: header() -->
+
 #### O que é um Sitemap?
 
 Um **sitemap** é um arquivo que descreve de forma estruturada todas as páginas de um site, permitindo que os mecanismos de busca compreendam melhor a estrutura e navegação do seu site. Esse arquivo fornece informações úteis sobre as páginas, vídeos e outros arquivos, indicando a relação entre eles.
@@ -357,3 +362,5 @@ Seguindo este tutorial, você será capaz de implementar um `robots.txt` eficaz 
   - [Analyzador de robots.txt do Bing](https://www.bing.com/webmasters/robots-txt-analyzer)
 
 Ao dedicar tempo para configurar corretamente seu `robots.txt`, você estará aprimorando a eficiência com que seu site é rastreado e garantindo que os mecanismos de busca tenham acesso ao conteúdo que mais importa.
+
+<!--Template: footer() -->

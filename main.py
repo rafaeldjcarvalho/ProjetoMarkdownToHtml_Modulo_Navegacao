@@ -14,7 +14,7 @@ class SiteGenerator:
         docs_dir = self.config["docs_dir"]
         output_dir = self.config["output_dir"]
         
-        menu_html = self.menu_generator.generate_menu(docs_dir)
+        menu_html = self.menu_generator.generate_menu(docs_dir, output_dir)
 
         # Capturar a primeira página como raiz
         root_page = None
@@ -33,6 +33,7 @@ class SiteGenerator:
 
         self.copy_assets(docs_dir, output_dir)
         self.copy_styles(docs_dir, output_dir)
+        self.copy_scripts(docs_dir, output_dir)
 
     def copy_assets(self, docs_dir, output_dir):
         src_assets = os.path.join(docs_dir, "assets")
@@ -46,6 +47,12 @@ class SiteGenerator:
         dst_styles = os.path.join(output_dir, "styles")
         if os.path.exists(src_styles):
             shutil.copytree(src_styles, dst_styles, dirs_exist_ok=True)
+
+    def copy_scripts(self, docs_dir, output_dir):
+        src_scripts = os.path.join(docs_dir, "scripts")
+        dst_scripts = os.path.join(output_dir, "scripts")
+        if os.path.exists(src_scripts):
+            shutil.copytree(src_scripts, dst_scripts, dirs_exist_ok=True)
 
 
 if __name__ == "__main__":

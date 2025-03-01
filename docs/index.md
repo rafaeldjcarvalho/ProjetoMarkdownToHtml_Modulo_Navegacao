@@ -1,4 +1,7 @@
-!!!__ INCLUDE "header.template.md" __!!!
+--id: index
+--titulo: Index
+
+<!--Template: header() -->
 
 **Título do Projeto:** Desenvolvimento de um Gerador de Sites Estáticos a partir de Arquivos Markdown
 
@@ -36,4 +39,4 @@ Este documento está dividido em três partes:
 
 :::
 
-!!!__ INCLUDE "footer.template.md" __!!!
+<!--Template: footer() -->
