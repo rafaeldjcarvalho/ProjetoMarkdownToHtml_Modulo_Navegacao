@@ -2,7 +2,26 @@ import os
 import re
 
 class BreadcrumbsGenerator:
+    """
+    Classe responsável por gerar breadcrumbs para navegação com base nos metadados do arquivo Markdown ou na estrutura de diretórios.
+    Os breadcrumbs ajudam o usuário a visualizar o caminho percorrido até a página atual.
+    """
+
     def parse_metadata(self, markdown_content):
+        """
+        Extrai os metadados do topo do documento Markdown.
+        
+        Metadados:
+        - id: Identificador único da página.
+        - titulo: Título da página.
+        - breadcrumbs: Caminho manual para os breadcrumbs.
+
+        Args:
+            markdown_content (str): Conteúdo bruto do arquivo Markdown.
+
+        Returns:
+            dict: Dicionário com os metadados extraídos.
+        """
         # Capturar as variáveis do topo do documento
         id_match = re.search(r'--id:\s*(.+)', markdown_content)
         title_match = re.search(r'--titulo:\s*(.+)', markdown_content)
@@ -15,6 +34,16 @@ class BreadcrumbsGenerator:
         }
 
     def find_page_by_id(self, page_id, docs_dir):
+        """
+        Busca o arquivo Markdown correspondente ao ID fornecido e extrai o título.
+
+        Args:
+            page_id (str): ID da página a ser encontrada.
+            docs_dir (str): Diretório base onde os arquivos Markdown estão localizados.
+
+        Returns:
+            tuple: Caminho do arquivo e título da página.
+        """
         # Buscar o arquivo pelo ID e pegar o título
         for root, _, files in os.walk(docs_dir):
             for file in files:
@@ -29,6 +58,17 @@ class BreadcrumbsGenerator:
         return None, page_id
 
     def generate_breadcrumbs(self, file_path, docs_dir, root_page):
+        """
+        Gera os breadcrumbs para a página atual com base nos metadados ou na estrutura de pastas.
+
+        Args:
+            file_path (str): Caminho do arquivo Markdown atual.
+            docs_dir (str): Diretório base onde os arquivos Markdown estão localizados.
+            root_page (str): Página raiz do site (ex: index.md).
+
+        Returns:
+            str: HTML dos breadcrumbs.
+        """
         try:
             with open(file_path, "r", encoding="utf-8") as file:
                 md_content = file.read()

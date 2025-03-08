@@ -5,13 +5,7 @@
 
 <h2 class="ca-pg-title">Parte 2: Especificações Técnicas</h2>
 
---h:thin----------------------------------------------------------------------------------
-
-<div class="bloco-my-1">
 !!!__ ToC __!!!
-</div>
-
---h:thin----------------------------------------------------------------------------------
 
 ## 2.1. Tarefas de Pré-processamento para os Docs Markdown
 

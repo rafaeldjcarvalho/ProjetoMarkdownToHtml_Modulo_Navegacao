@@ -5,12 +5,29 @@ from modules.markdown_converter import MarkdownConverter
 from modules.menu_generator import MenuGenerator
 
 class SiteGenerator:
+    """
+    Classe responsável por gerar o site completo a partir de arquivos Markdown.
+    Realiza a conversão para HTML, gera o menu, breadcrumbs, ToC e copia recursos como assets, estilos e scripts.
+    """
+
     def __init__(self, config):
+        """
+        Inicializa a classe com as configurações do site.
+
+        Args:
+            config (dict): Configurações do site, incluindo caminhos e opções de navegação.
+        """
         self.config = config
         self.menu_generator = MenuGenerator()
         self.converter = MarkdownConverter(config)
 
     def process_site(self):
+        """
+        Processa o site inteiro: 
+        - Gera o menu
+        - Converte os arquivos Markdown para HTML
+        - Copia assets, estilos e scripts para o diretório de saída
+        """
         docs_dir = self.config["docs_dir"]
         output_dir = self.config["output_dir"]
         
@@ -36,6 +53,9 @@ class SiteGenerator:
         self.copy_scripts(docs_dir, output_dir)
 
     def copy_assets(self, docs_dir, output_dir):
+        """
+        Copia a pasta de assets (imagens, ícones, etc.) para o diretório de saída.
+        """
         src_assets = os.path.join(docs_dir, "assets")
         dst_assets = os.path.join(output_dir, "assets")
         if os.path.exists(src_assets):
@@ -43,12 +63,18 @@ class SiteGenerator:
 
     
     def copy_styles(self, docs_dir, output_dir):
+        """
+        Copia a pasta de estilos CSS para o diretório de saída.
+        """
         src_styles = os.path.join(docs_dir, "styles")
         dst_styles = os.path.join(output_dir, "styles")
         if os.path.exists(src_styles):
             shutil.copytree(src_styles, dst_styles, dirs_exist_ok=True)
 
     def copy_scripts(self, docs_dir, output_dir):
+        """
+        Copia a pasta de scripts JavaScript para o diretório de saída.
+        """
         src_scripts = os.path.join(docs_dir, "scripts")
         dst_scripts = os.path.join(output_dir, "scripts")
         if os.path.exists(src_scripts):

@@ -5,13 +5,7 @@
 
 <h2 class="ca-pg-title">Parte 1: Sobre o Projeto e sua Avaliação</h2>
 
---h:thin----------------------------------------------------------------------------------
-
-<div class="bloco-my-1">
 !!!__ ToC __!!!
-</div>
-
---h:thin----------------------------------------------------------------------------------
 
 ## 1.1. Funcionalidades Principais
 

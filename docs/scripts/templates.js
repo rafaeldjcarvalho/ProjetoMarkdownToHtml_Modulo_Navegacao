@@ -4,7 +4,7 @@ function header() {
     // Logo
     const logoDiv = document.createElement('div');
     const logoImg = document.createElement('img');
-    logoImg.src = `/assets/logo-ifs.svg`;
+    logoImg.src = `assets/logo-ifs.svg`;
     logoImg.alt = "Logo Instituto Federal";
     logoDiv.appendChild(logoImg);
     headerDiv.appendChild(logoDiv);

@@ -1,7 +1,23 @@
 import os
 
 class MenuGenerator:
+    """
+    Classe responsável por gerar o menu de navegação para o site.
+    O menu é construído com base na estrutura de arquivos Markdown, 
+    convertendo-os para links HTML organizados hierarquicamente.
+    """
+     
     def generate_menu(self, docs_dir, dist_dir):
+        """
+        Gera o menu de navegação com base nos arquivos Markdown encontrados.
+        
+        Args:
+            docs_dir (str): Caminho para o diretório contendo os arquivos Markdown.
+            dist_dir (str): Caminho para o diretório de saída (HTML).
+        
+        Returns:
+            str: HTML do menu gerado.
+        """
         menu = ["<nav class='sidebar'><ul>"]
 
         # Caminho base para os arquivos HTML
